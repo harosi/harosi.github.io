@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SOS Idős- és Családvédelem - Részletek | Hárosi Fejlesztések</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+    body { background-color: #f8fafc; color: #1e293b; line-height: 1.6; }
+    header { background: #0f172a; color: white; padding: 3rem 1rem; text-align: center; }
+    header h1 { font-size: 2.3rem; margin-bottom: 0.5rem; font-weight: 800; }
+    header p { color: #94a3b8; font-size: 1.15rem; max-width: 650px; margin: 0 auto; }
+    .container { max-width: 900px; margin: 2.5rem auto; padding: 0 1.5rem; }
+    
+    .back-nav { margin-bottom: 1.5rem; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.4rem; color: #2563eb; text-decoration: none; font-weight: 600; font-size: 0.95rem; }
+    .back-link:hover { text-decoration: underline; }
+
+    .card { background: white; border-radius: 14px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.07); padding: 2rem; margin-bottom: 2rem; border: 1px solid #e2e8f0; }
+    .card h2 { color: #0f172a; font-size: 1.4rem; margin-bottom: 1rem; border-bottom: 2px solid #f1f5f9; padding-bottom: 0.5rem; }
+    
+    .target-group { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; margin-top: 1.25rem; }
+    .target-item { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px; padding: 1.2rem; }
+    .target-item strong { display: block; color: #1e293b; margin-bottom: 0.4rem; font-size: 1.05rem; }
+    .target-item p { font-size: 0.92rem; color: #475569; line-height: 1.5; }
+
+    .widget-box { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 10px; padding: 1.5rem; margin-top: 1rem; }
+    .widget-box h3 { color: #1d4ed8; font-size: 1.2rem; margin-bottom: 0.5rem; }
+    .widget-box p { color: #1e40af; font-size: 0.95rem; margin-bottom: 1.2rem; }
+
+    .feature-list { list-style: none; margin-top: 1rem; }
+    .feature-list li { margin-bottom: 0.85rem; padding-left: 1.8rem; position: relative; font-size: 0.95rem; color: #334155; }
+    .feature-list li::before { content: "✔"; position: absolute; left: 0; color: #16a34a; font-weight: bold; }
+
+    .widget-badge { display: inline-flex; border-radius: 10px; overflow: hidden; box-shadow: 0 3px 6px rgba(0,0,0,0.18); font-family: sans-serif; font-weight: bold; text-align: center; height: 34px; margin-bottom: 0.75rem; }
+    .widget-badge .sos { background-color: #dc2626; color: white; padding: 3px 10px; display: flex; flex-direction: column; justify-content: center; align-items: center; min-width: 60px; }
+    .widget-badge .gps { background-color: #1d4ed8; color: white; padding: 3px 10px; display: flex; flex-direction: column; justify-content: center; align-items: center; min-width: 60px; }
+    .widget-badge .title { font-size: 0.8rem; line-height: 1.1; letter-spacing: 0.4px; }
+    .widget-badge .subtitle { font-size: 0.5rem; font-weight: 700; opacity: 0.95; letter-spacing: 0.2px; }
+
+    .price-box { background: white; border: 2px solid #2563eb; border-radius: 14px; padding: 2.2rem 1.5rem; text-align: center; max-width: 520px; margin: 2rem auto; box-shadow: 0 10px 15px -3px rgba(37,99,235,0.1); }
+    .badge { display: inline-block; background: #dbeafe; color: #1d4ed8; padding: 0.3rem 0.8rem; border-radius: 9999px; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.75rem; }
+    .price { font-size: 2.3rem; font-weight: 800; color: #0f172a; margin-bottom: 0.5rem; }
+    .price span { font-size: 1rem; font-weight: normal; color: #64748b; }
+    .btn { display: inline-block; width: 100%; max-width: 320px; background: #2563eb; color: white; padding: 0.9rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: bold; font-size: 1.05rem; transition: background 0.2s; margin-top: 1rem; }
+    .btn:hover { background: #1d4ed8; }
+    .guarantee { font-size: 0.85rem; color: #64748b; margin-top: 0.85rem; }
+
+    footer { text-align: center; padding: 2.5rem 1rem; color: #64748b; font-size: 0.85rem; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Hárosi Fejlesztések</h1>
+    <p>SOS Idős- és Családvédelem Alkalmazás</p>
+  </header>
+
+  <div class="container">
+
+    <div class="back-nav">
+      <a href="index.html" class="back-link">← Vissza a főoldalra</a>
+    </div>
+
+    <!-- Áttekintés -->
+    <div class="card">
+      <h2>Mi az az SOS Idős- és Családvédelem?</h2>
+      <p>Egy praktikus, Android-alapú segélykérő alkalmazás, amely arra született, hogy veszélyhelyzetben vagy eltévedéskor azonnal összekösse a bajbajutottat a hozzátartozóival. Nincs szükség bonyolult térképkezelésre, menükben való lapozásra vagy koordináták másolására.</p>
+
+      <div class="target-group">
+        <div class="target-item">
+          <strong>👵 Időseknek</strong>
+          <p>Biztonságot nyújt séta vagy utazás közben. Hirtelen rosszullét, tájékozódási bizonytalanság esetén egyetlen érintéssel tudatni tudja a családdal, hol tartózkodik.</p>
+        </div>
+        <div class="target-item">
+          <strong>🎒 Gyermekeknek</strong>
+          <p>Iskolába járáskor, edzés után vagy kiránduláson könnyen bajba juthat egy gyermek is. Egy gombnyomással elküldheti a szülőknek a pontos helyét.</p>
+        </div>
+        <div class="target-item">
+          <strong>🧭 GPS-ben bizonytalanoknak</strong>
+          <p>Bárkinek, aki nehezebben igazodik el az okostelefon térképfunkcióiban. Nem kell címet keresni, az app automatikusan elvégzi a pontos helymeghatározást.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Kiemelt Widget szekció -->
+    <div class="card">
+      <h2>Kiemelt funkció: „SOS – Eltévedtem!” Képernyő Widget</h2>
+      
+      <div class="widget-badge">
+        <div class="sos">
+          <span class="title">SOS</span>
+          <span class="subtitle">SEGÉLYKÉRÉS</span>
+        </div>
+        <div class="gps">
+          <span class="title">GPS</span>
+          <span class="subtitle">HELYZETKÜLDÉS</span>
+        </div>
+      </div>
+
+      <div class="widget-box">
+        <h3>📍 Azonnali segélykérés közvetlenül a kezdőképernyőről</h3>
+        <p>A kezdőképernyőre kitehető nagyméretű, figyelemfelkeltő gomboknak köszönhetően a telefon feloldása után azonnal indítható a segítségkérés.</p>
+        
+        <ul class="feature-list">
+          <li><strong>Nulla technikai felkészültséget igényel:</strong> Megérintésekor a rendszer önállóan lekéri a GPS műholdak adatait.</li>
+          <li><strong>Kattinthathó térképes SMS:</strong> A hozzátartozók telefonjára azonnal megérkezik a pontos szélességi/hosszúsági adat, valamint egy közvetlen Google Térkép link, amelyre kattintva a családtag máris indíthatja a helyszínre vezető navigációt.</li>
+          <li><strong>Félrenyomásbiztos kialakítás:</strong> Kifejezetten remegő kézre, stresszhelyzetre és gyengébb látásra optimalizált méret és kontraszt.</li>
+          <li><strong>Megbízható, közvetlen kapcsolat:</strong> SMS-alapú riasztás, így nem szükséges bonyolult külső chat-rendszerekben bejelentkezve lenni.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Vásárlás doboz -->
+    <div class="price-box">
+      <span class="badge">Egyszeri Díj • Örökös Licenc</span>
+      <div class="price">2 500 Ft <span>/ készülék</span></div>
+      <p style="color: #64748b; font-size: 0.95rem; margin-top: 0.5rem;">Nincsenek havi költségek és rejtett díjak. Teljes funkcionalitás és ingyenes jövőbeli frissítések.</p>
+      
+      <a href="https://buy.stripe.com/test_3cIaEYgqceh6dUMfQr7Re00" class="btn">Licenc Vásárlása Bankkártyával</a>
+      
+      <div class="guarantee">🔒 Biztonságos Stripe bankkártyás fizetés • Azonnali hozzáférés</div>
+    </div>
+
+  </div>
+
+  <footer>
+    <p>&copy; Hárosi Fejlesztések. Minden jog fenntartva.</p>
+  </footer>
+
+</body>
+</html>
