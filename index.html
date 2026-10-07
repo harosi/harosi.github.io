@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hárosi Szoftverek & Webshop</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+    body { background-color: #f8fafc; color: #1e293b; line-height: 1.6; }
+    header { background: #0f172a; color: white; padding: 2.5rem 1rem; text-align: center; }
+    header h1 { font-size: 2.2rem; margin-bottom: 0.5rem; }
+    header p { color: #94a3b8; font-size: 1.1rem; }
+    .container { max-width: 1000px; margin: 2rem auto; padding: 0 1rem; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 1.5rem; }
+    .card { background: white; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); padding: 1.5rem; display: flex; flex-direction: column; justify-content: space-between; border: 1px solid #e2e8f0; }
+    .card h2 { font-size: 1.3rem; margin-bottom: 0.75rem; color: #0f172a; }
+    .card p { color: #64748b; font-size: 0.95rem; margin-bottom: 1.2rem; }
+    .badge { display: inline-block; background: #e0f2fe; color: #0369a1; padding: 0.25rem 0.6rem; border-radius: 9999px; font-size: 0.8rem; font-weight: 600; margin-bottom: 1rem; width: fit-content; }
+    .price { font-size: 1.5rem; font-weight: bold; color: #0f172a; margin-bottom: 1rem; }
+    .btn { display: inline-block; text-align: center; background: #2563eb; color: white; padding: 0.75rem 1rem; border-radius: 8px; text-decoration: none; font-weight: 600; transition: background 0.2s; border: none; cursor: pointer; width: 100%; }
+    .btn:hover { background: #1d4ed8; }
+    .btn-secondary { background: #64748b; }
+    .btn-secondary:hover { background: #475569; }
+    footer { text-align: center; padding: 2.5rem; color: #94a3b8; font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Hárosi Fejlesztések</h1>
+    <p>Professzionális automatizálás, hardveres vezérlés és biztonsági appok</p>
+  </header>
+
+  <div class="container">
+    <div class="grid">
+      <!-- 1. DevizaRoot Robot -->
+      <div class="card">
+        <div>
+          <span class="badge">Forex Automatika</span>
+          <h2>DevizaRoot Algoritmus</h2>
+          <p>MetaTrader 5 alá illesztett kereskedőrobot H1 trendszűrővel, ATR alapú minimum 12 pip SL védelemmel és USD kitettségfékkel.</p>
+        </div>
+        <div>
+          <div class="price">Kapcsolatfelvétel</div>
+          <a href="mailto:harosi@gmail.com" class="btn btn-secondary">Érdeklődés & Információ</a>
+        </div>
+      </div>
+
+      <!-- 2. Iskolai Csengető -->
+      <div class="card">
+        <div>
+          <span class="badge">Intézményi Hardver</span>
+          <h2>Iskolai Csengető Rendszer</h2>
+          <p>Android alapú vezérlőszoftver 230V USB relé modulhoz. Rugalmas órarendkezelés, hangbejátszás és egyedi licenckulcsos aktiválás.</p>
+        </div>
+        <div>
+          <div class="price">Ajánlatkérés</div>
+          <a href="mailto:harosi@gmail.com" class="btn btn-secondary">Megrendelés</a>
+        </div>
+      </div>
+
+      <!-- 3. SOS Védelem -->
+      <div class="card">
+        <div>
+          <span class="badge">Mobilbiztonság</span>
+          <h2>SOS Idős- és Családvédelem</h2>
+          <p>Okostelefonos vészjelző, valós idejű helymeghatározás és távoli riasztás családtagok számára.</p>
+        </div>
+        <div>
+          <div class="price">1 500 Ft</div>
+          <button class="btn" onclick="alert('A fizetési felület és az automata licenckiadás hamarosan élesedik!')">Licenc Vásárlása</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 Hárosi. Minden jog fenntartva.</p>
+  </footer>
+
+</body>
+</html>
