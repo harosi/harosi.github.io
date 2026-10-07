@@ -3,34 +3,130 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Köszönjük a vásárlást! - Hárosi Fejlesztések</title>
+  <title>Köszönjük a vásárlást! | Hárosi Fejlesztések</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
-    body { background-color: #f8fafc; color: #1e293b; line-height: 1.6; display: flex; align-items: center; justify-content: center; min-height: 100vh; padding: 1rem; }
-    .card { background: white; border-radius: 12px; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); padding: 2.5rem; max-width: 550px; width: 100%; border: 1px solid #e2e8f0; text-align: center; }
-    .icon { font-size: 3.5rem; margin-bottom: 1rem; }
-    h1 { font-size: 1.8rem; color: #0f172a; margin-bottom: 0.75rem; }
-    p { color: #64748b; margin-bottom: 1.25rem; font-size: 1rem; }
-    .info-box { background: #f0fdf4; border: 1px solid #bbf7d0; color: #166534; padding: 1rem; border-radius: 8px; font-size: 0.95rem; margin-bottom: 1.5rem; text-align: left; }
-    .btn { display: inline-block; background: #2563eb; color: white; padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 600; transition: background 0.2s; }
+    body { background-color: #f8fafc; color: #1e293b; line-height: 1.6; }
+    header { background: #0f172a; color: white; padding: 2.5rem 1rem; text-align: center; }
+    header h1 { font-size: 2rem; margin-bottom: 0.5rem; font-weight: 800; }
+    .container { max-width: 650px; margin: 2rem auto; padding: 0 1.5rem; }
+    .card { background: white; border-radius: 14px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.07); padding: 2rem; border: 1px solid #e2e8f0; margin-bottom: 2rem; }
+    h2 { font-size: 1.3rem; margin-bottom: 1rem; color: #0f172a; }
+    p { font-size: 0.95rem; color: #475569; margin-bottom: 1rem; }
+    
+    .form-group { margin-bottom: 1.2rem; }
+    label { display: block; font-weight: 600; font-size: 0.9rem; margin-bottom: 0.4rem; color: #1e293b; }
+    input { width: 100%; padding: 0.75rem; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 1rem; background: #f8fafc; }
+    input:focus { outline: none; border-color: #2563eb; background: white; }
+    
+    .btn { display: block; width: 100%; text-align: center; background: #2563eb; color: white; padding: 0.85rem 1.2rem; border-radius: 8px; font-weight: 600; font-size: 1rem; border: none; cursor: pointer; transition: background 0.2s; }
     .btn:hover { background: #1d4ed8; }
+    .btn:disabled { background: #94a3b8; cursor: not-allowed; }
+
+    .result-box { display: none; background: #f0fdf4; border: 2px solid #86efac; border-radius: 10px; padding: 1.5rem; margin-top: 1.5rem; text-align: center; }
+    .result-box .code { font-size: 2.2rem; font-weight: 800; color: #15803d; letter-spacing: 2px; margin: 0.5rem 0; }
+    
+    .guide-box { background: #f1f5f9; border-radius: 8px; padding: 1rem; margin-top: 1rem; font-size: 0.88rem; text-align: left; color: #334155; }
+    .guide-box ol { margin-left: 1.2rem; }
+    .guide-box li { margin-bottom: 0.4rem; }
+
+    footer { text-align: center; padding: 2rem 1rem; color: #64748b; font-size: 0.85rem; }
   </style>
 </head>
 <body>
 
-  <div class="card">
-    <div class="icon">✅</div>
-    <h1>Sikeres vásárlás!</h1>
-    <p>Köszönjük a megrendelést az <strong>SOS Idős- és Családvédelem</strong> alkalmazáshoz.</p>
-    
-    <div class="info-box">
-      <strong>Mi a következő lépés?</strong><br>
-      A licenckulcsot és az aktiválási útmutatót a fizetés során megadott e-mail címedre küldjük el perceken belül.<br><br>
-      Ha 10 percen belül nem látod, kérjük, ellenőrizd a <em>Promóciók</em> vagy <em>Spam</em> mappát is!
-    </div>
+  <header>
+    <h1>Köszönjük a megrendelést!</h1>
+    <p>Azonnali aktiválási kód generálása</p>
+  </header>
 
-    <a href="index.html" class="btn">Vissza a főoldalra</a>
+  <div class="container">
+    <div class="card">
+      <h2>Licenc Aktiválása</h2>
+      <p>Kérjük, adja meg a fizetéshez használt e-mail címét és a telefonon futó alkalmazásban megjelenő 4 jegyű készülékkódot!</p>
+
+      <form id="licenseForm">
+        <div class="form-group">
+          <label for="email">E-mail cím:</label>
+          <input type="email" id="email" required placeholder="pelda@gmail.com">
+        </div>
+
+        <div class="form-group">
+          <label for="deviceId">Készülékkód (az applikáció Beállítások menüjéből):</label>
+          <input type="number" id="deviceId" required placeholder="pl. 4521">
+        </div>
+
+        <button type="submit" id="submitBtn" class="btn">Aktivációs Kód Létrehozása</button>
+      </form>
+
+      <!-- Eredmény Megjelenítő Doboz -->
+      <div id="resultBox" class="result-box">
+        <h3 style="color: #166534; font-size: 1.1rem;">Sikeres aktiválás!</h3>
+        <p style="margin-bottom: 0.5rem;">Az Ön végleges feloldókódja:</p>
+        <div class="code" id="displayCode">------</div>
+        <p style="font-size: 0.85rem; color: #166534;">A kódot elküldtük a megadott e-mail címre is!</p>
+
+        <div class="guide-box">
+          <strong>Aktiválás lépései a telefonon:</strong>
+          <ol>
+            <li>Nyissa meg az SOS alkalmazást a telefonján.</li>
+            <li>A jobb felső sarokban érintse meg a fogaskerék (Beállítások) ikont.</li>
+            <li>Írja be a fenti számot az <em>„Aktivációs kód beírása”</em> mezőbe.</li>
+            <li>Nyomja meg az <strong>Aktiválás</strong> gombot, majd koppintson a <strong>Mentés</strong> gombra.</li>
+          </ol>
+        </div>
+      </div>
+
+    </div>
   </div>
+
+  <footer>
+    <p>&copy; Hárosi Fejlesztések. Minden jog fenntartva.</p>
+  </footer>
+
+  <script>
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyvYaM-aU8HW7BLvH70VuEibTja0gu5nPuKR5-1GioJaLr-yuKkrdJN6greoBF4JTXr/exec";
+
+    const form = document.getElementById('licenseForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const resultBox = document.getElementById('resultBox');
+    const displayCode = document.getElementById('displayCode');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      submitBtn.disabled = true;
+      submitBtn.innerText = "Generálás folyamatban...";
+
+      const payload = {
+        email: document.getElementById('email').value,
+        deviceId: document.getElementById('deviceId').value
+      };
+
+      try {
+        const response = await fetch(SCRIPT_URL, {
+          method: "POST",
+          body: JSON.stringify(payload)
+        });
+
+        const result = await response.json();
+
+        if (result.status === "success") {
+          displayCode.innerText = result.activationCode;
+          resultBox.style.display = "block";
+          form.style.display = "none";
+        } else {
+          alert("Hiba történt: " + result.message);
+          submitBtn.disabled = false;
+          submitBtn.innerText = "Aktivációs Kód Létrehozása";
+        }
+      } catch (err) {
+        alert("Hálózati kapcsolat hiba! Kérjük ellenőrizze az internetet.");
+        submitBtn.disabled = false;
+        submitBtn.innerText = "Aktivációs Kód Létrehozása";
+      }
+    });
+  </script>
 
 </body>
 </html>
