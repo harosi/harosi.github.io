@@ -24,14 +24,6 @@
     .btn-group { display: flex; gap: 0.5rem; flex-direction: column; }
     .btn-outline { background: transparent; color: #2563eb; border: 1px solid #2563eb; }
     .btn-outline:hover { background: #eff6ff; }
-
-    /* A kártyán belüli widget ikon stílusa */
-    .widget-badge { display: inline-flex; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 6px rgba(0,0,0,0.18); font-family: sans-serif; font-weight: bold; text-align: center; height: 32px; }
-    .widget-badge .sos { background-color: #dc2626; color: white; padding: 2px 8px; display: flex; flex-direction: column; justify-content: center; align-items: center; min-width: 58px; }
-    .widget-badge .gps { background-color: #1d4ed8; color: white; padding: 2px 8px; display: flex; flex-direction: column; justify-content: center; align-items: center; min-width: 58px; }
-    .widget-badge .title { font-size: 0.75rem; line-height: 1.1; letter-spacing: 0.4px; }
-    .widget-badge .subtitle { font-size: 0.45rem; font-weight: 700; opacity: 0.95; letter-spacing: 0.2px; }
-
     footer { text-align: center; padding: 2.5rem 1rem; color: #64748b; font-size: 0.85rem; }
   </style>
 </head>
@@ -71,21 +63,20 @@
         </div>
       </div>
 
-      <!-- 3. SOS Idős- és Családvédelem (Mobilbiztonság mellé téve a widget) -->
+      <!-- 3. SOS Idős- és Családvédelem -->
       <div class="card" style="border: 2px solid #2563eb;">
         <div>
-          <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 1rem; flex-wrap: wrap;">
+          <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 1rem;">
             <span class="badge" style="background: #dbeafe; color: #1d4ed8;">Mobilbiztonság</span>
             
-            <!-- SOS / GPS Widget közvetlenül a Mobilbiztonság mellett -->
-            <div class="widget-badge">
-              <div class="sos">
-                <span class="title">SOS</span>
-                <span class="subtitle">SEGÉLYKÉRÉS</span>
+            <div style="display: inline-flex; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.15); font-family: sans-serif; font-weight: bold; text-align: center; height: 30px;">
+              <div style="background-color: #dc2626; color: white; padding: 2px 8px; display: flex; flex-direction: column; justify-content: center; align-items: center; min-width: 55px;">
+                <span style="font-size: 0.7rem; line-height: 1.1;">SOS</span>
+                <span style="font-size: 0.45rem; font-weight: 700;">SEGÉLYKÉRÉS</span>
               </div>
-              <div class="gps">
-                <span class="title">GPS</span>
-                <span class="subtitle">HELYZETKÜLDÉS</span>
+              <div style="background-color: #1d4ed8; color: white; padding: 2px 8px; display: flex; flex-direction: column; justify-content: center; align-items: center; min-width: 55px;">
+                <span style="font-size: 0.7rem; line-height: 1.1;">GPS</span>
+                <span style="font-size: 0.45rem; font-weight: 700;">HELYZETKÜLDÉS</span>
               </div>
             </div>
           </div>
