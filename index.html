@@ -3,99 +3,95 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SOS Idős- és Családvédelem - Hárosi Fejlesztések</title>
+  <title>Hárosi Fejlesztések & Webshop</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
     body { background-color: #f8fafc; color: #1e293b; line-height: 1.6; }
-    header { background: #0f172a; color: white; padding: 2.5rem 1rem; text-align: center; }
-    header h1 { font-size: 2.2rem; margin-bottom: 0.5rem; }
-    header p { color: #94a3b8; font-size: 1.1rem; max-width: 650px; margin: 0 auto; }
-    .container { max-width: 900px; margin: 2rem auto; padding: 0 1rem; }
-    
-    .section-card { background: white; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.07); padding: 2rem; margin-bottom: 2rem; border: 1px solid #e2e8f0; }
-    .section-card h2 { font-size: 1.4rem; color: #0f172a; margin-bottom: 1rem; border-bottom: 2px solid #f1f5f9; padding-bottom: 0.5rem; }
-    
-    .target-group { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; margin-top: 1rem; }
-    .target-item { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 1.2rem; }
-    .target-item strong { display: block; color: #1e293b; margin-bottom: 0.4rem; font-size: 1.05rem; }
-    .target-item p { font-size: 0.95rem; color: #475569; }
-
-    .feature-list { list-style: none; margin-top: 1rem; }
-    .feature-list li { margin-bottom: 0.85rem; padding-left: 1.8rem; position: relative; font-size: 1rem; color: #334155; }
-    .feature-list li::before { content: "✔"; position: absolute; left: 0; color: #16a34a; font-weight: bold; }
-
-    .widget-box { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 10px; padding: 1.5rem; margin-top: 1rem; }
-    .widget-box h3 { color: #1d4ed8; margin-bottom: 0.5rem; font-size: 1.2rem; }
-    .widget-box p { color: #1e40af; font-size: 0.95rem; margin-bottom: 1rem; }
-
-    .price-card { background: white; border-radius: 12px; border: 2px solid #2563eb; padding: 2rem; text-align: center; max-width: 500px; margin: 0 auto; box-shadow: 0 10px 15px -3px rgba(37,99,235,0.1); }
-    .badge { display: inline-block; background: #dbeafe; color: #1d4ed8; padding: 0.3rem 0.8rem; border-radius: 9999px; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.75rem; }
-    .price { font-size: 2.2rem; font-weight: bold; color: #0f172a; margin-bottom: 1rem; }
-    .price span { font-size: 1rem; font-weight: normal; color: #64748b; }
-    .btn { display: inline-block; width: 100%; max-width: 320px; background: #2563eb; color: white; padding: 0.85rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: bold; font-size: 1.05rem; transition: background 0.2s; }
+    header { background: #0f172a; color: white; padding: 3rem 1rem; text-align: center; }
+    header h1 { font-size: 2.4rem; margin-bottom: 0.6rem; font-weight: 800; }
+    header p { color: #94a3b8; font-size: 1.15rem; max-width: 700px; margin: 0 auto; }
+    .container { max-width: 1200px; margin: 3rem auto; padding: 0 1.5rem; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; align-items: start; }
+    .card { background: white; border-radius: 14px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.07), 0 2px 4px -2px rgba(0,0,0,0.05); padding: 2rem; border: 1px solid #e2e8f0; display: flex; flex-direction: column; justify-content: space-between; min-height: 100%; }
+    .card h2 { font-size: 1.35rem; margin-bottom: 0.75rem; color: #0f172a; }
+    .badge { display: inline-block; background: #e0f2fe; color: #0369a1; padding: 0.3rem 0.75rem; border-radius: 9999px; font-size: 0.8rem; font-weight: 600; margin-bottom: 1rem; width: fit-content; }
+    .card p { color: #64748b; font-size: 0.95rem; margin-bottom: 1.25rem; line-height: 1.5; }
+    .features { list-style: none; margin-bottom: 1.5rem; }
+    .features li { font-size: 0.9rem; color: #334155; margin-bottom: 0.6rem; padding-left: 1.4rem; position: relative; }
+    .features li::before { content: "•"; position: absolute; left: 0.4rem; color: #2563eb; font-weight: bold; }
+    .highlight-box { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 0.85rem; margin-bottom: 1.25rem; }
+    .highlight-box strong { color: #1d4ed8; font-size: 0.9rem; display: block; margin-bottom: 0.3rem; }
+    .highlight-box p { font-size: 0.85rem; color: #1e40af; margin-bottom: 0; line-height: 1.4; }
+    .price { font-size: 1.6rem; font-weight: bold; color: #0f172a; margin-bottom: 1.25rem; margin-top: auto; }
+    .btn { display: inline-block; text-align: center; background: #2563eb; color: white; padding: 0.85rem 1.2rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: background 0.2s; border: none; cursor: pointer; }
     .btn:hover { background: #1d4ed8; }
-    .guarantee { font-size: 0.85rem; color: #64748b; margin-top: 0.75rem; }
-    
-    footer { text-align: center; padding: 2rem; color: #64748b; font-size: 0.85rem; }
+    .btn-secondary { background: #475569; }
+    .btn-secondary:hover { background: #334155; }
+    footer { text-align: center; padding: 2.5rem 1rem; color: #64748b; font-size: 0.85rem; }
   </style>
 </head>
 <body>
 
   <header>
-    <h1>Hárosi Szoftverek & Webshop</h1>
-    <p>Biztonsági és segélykérő alkalmazások a mindennapok nyugalmáért.</p>
+    <h1>Hárosi Fejlesztések</h1>
+    <p>Professzionális automatizálás, hardveres vezérlés és biztonsági appok</p>
   </header>
 
   <div class="container">
-
-    <!-- Áttekintés és Célcsoport szekció -->
-    <div class="section-card">
-      <h2>SOS Idős- és Családvédelem</h2>
-      <p>Android-alapú segélykérő alkalmazás, amelyet kifejezetten úgy terveztünk, hogy vészhelyzet vagy eltévedés esetén egyetlen érintéssel azonnal értesíthetők legyenek a családtagok.</p>
-
-      <div class="target-group">
-        <div class="target-item">
-          <strong>👵 Időseknek</strong>
-          <p>Akik nehezebben kezelik a bonyolult okostelefon-menüket, vagy félnek az eltévedéstől és rosszulléttől a mindennapokban.</p>
+    <div class="grid">
+      
+      <!-- 1. Kártya: DevizaRoot -->
+      <div class="card">
+        <div>
+          <span class="badge">Forex Automatika</span>
+          <h2>DevizaRoot Algoritmus</h2>
+          <p>MetaTrader 5 alá illesztett kereskedőrobot H1 trendszűrővel, ATR alapú minimum 12 pip SL védelemmel és USD kitettségekkel.</p>
         </div>
-        <div class="target-item">
-          <strong>🎒 Gyermekeknek</strong>
-          <p>Iskolába járáskor vagy kiránduláson, ha eltévednének, egyetlen érintéssel tudatni tudják a szülőkkel, pontosan merre járnak.</p>
-        </div>
-        <div class="target-item">
-          <strong>🧭 GPS-ben bizonytalanoknak</strong>
-          <p>Minden olyan felnőttnek, aki nem igazodik el a telefonos térképeken: nem kell címet másolni, sem keresgélni.</p>
+        <div>
+          <div class="price">Kapcsolatfelvétel</div>
+          <a href="mailto:harosi.ferenc@gmail.com" class="btn btn-secondary" style="width: 100%;">Érdeklődés & Információ</a>
         </div>
       </div>
-    </div>
 
-    <!-- Kiemelt Widget szekció -->
-    <div class="section-card">
-      <h2>Kiemelt funkció: „SOS – Eltévedtem!” Képernyő Widget</h2>
-      <div class="widget-box">
-        <h3>📍 Azonnali segítségkérés közvetlenül a nyitóképernyőről</h3>
-        <p>A kezdőképernyőre helyezett nagyméretű, félrenyomásbiztos widgettel a bajbajutottnak nem kell alkalmazásokat keresgélnie.</p>
-        <ul class="feature-list">
-          <li><strong>Nulla technikai tudást igényel:</strong> Megérintésekor a telefon automatikusan beolvassa az aktuális GPS-helyzetet.</li>
-          <li><strong>Azonnali térképes link a családnak:</strong> A hozzátartozók SMS-ben pontos koordinátákat és közvetlen Google Térkép útvonaltervező linket kapnak.</li>
-          <li><strong>Gyors hívásindítás és jelzés:</strong> Az előre megadott számok azonnal értesülnek anélkül, hogy bonyolult lépésekre lenne szükség.</li>
-          <li><strong>Idősbarát, kontrasztos felület:</strong> Reszkető kézzel vagy gyengébb látással is könnyen, félrenyomás nélkül aktiválható.</li>
-        </ul>
+      <!-- 2. Kártya: Iskolai Csengető -->
+      <div class="card">
+        <div>
+          <span class="badge">Intézményi Hardver</span>
+          <h2>Iskolai Csengető Rendszer</h2>
+          <p>Android alapú vezérlőszoftver 230V USB relé modulhoz. Rugalmas órarendkezelés, hangbejátszás és egyedi licenckulcsos aktiválás.</p>
+        </div>
+        <div>
+          <div class="price">Ajánlatkérés</div>
+          <a href="mailto:harosi.ferenc@gmail.com" class="btn btn-secondary" style="width: 100%;">Megrendelés</a>
+        </div>
       </div>
-    </div>
 
-    <!-- Vásárlás / Stripe Kártya -->
-    <div class="price-card">
-      <span class="badge">Örökös Licenc</span>
-      <h3>SOS Idős- és Családvédelem</h3>
-      <div class="price">2 500 Ft <span>/ egyszeri díj</span></div>
-      <p style="color: #64748b; font-size: 0.95rem; margin-bottom: 1.5rem;">Nincs havidíj. Teljes funkcionalitás, örökös használat 1 készülékre, ingyenes jövőbeli frissítésekkel.</p>
-      
-      <a href="https://buy.stripe.com/test_3cIaEYgqceh6dUMfQr7Re00" class="btn">Megvásárlás bankkártyával</a>
-      
-      <div class="guarantee">🔒 Biztonságos fizetés a Stripe rendszerén keresztül</div>
-    </div>
+      <!-- 3. Kártya: SOS Idős- és Családvédelem (Részletes leírással) -->
+      <div class="card" style="border: 2px solid #2563eb;">
+        <div>
+          <span class="badge" style="background: #dbeafe; color: #1d4ed8;">Mobilbiztonság</span>
+          <h2>SOS Idős- és Családvédelem</h2>
+          <p>Androidos segélykérő app egyérintéses riasztással, automatikus GPS-koordináta és térképes link küldéssel családtagoknak.</p>
+          
+          <div class="highlight-box">
+            <strong>📍 „SOS – Eltévedtem!” Képernyő Widget</strong>
+            <p>Közvetlenül a nyitóképernyőre tehető nagyméretű, félrenyomásbiztos gomb. Menük nélkül, egyetlen érintéssel azonnal elküldi a pontos tartózkodási helyet a segítőknek.</p>
+          </div>
 
+          <ul class="features">
+            <li><strong>👵 Időseknek:</strong> Egyszerű használat tájékozódási zavar vagy rosszullét esetére.</li>
+            <li><strong>🎒 Gyermekeknek:</strong> Gyors segítségkérés iskolába menet vagy kiránduláson.</li>
+            <li><strong>🧭 Tájékozódási segítség:</strong> Bárkinek, aki nehezebben igazodik el a telefon GPS/térkép funkcióiban.</li>
+            <li><strong>Örökös licenc:</strong> Egyszeri díj, nincsenek rejtett havi előfizetések.</li>
+          </ul>
+        </div>
+        <div>
+          <div class="price">2 500 Ft</div>
+          <a href="https://buy.stripe.com/test_3cIaEYgqceh6dUMfQr7Re00" class="btn" style="width: 100%;">Licenc Vásárlása</a>
+        </div>
+      </div>
+
+    </div>
   </div>
 
   <footer>
