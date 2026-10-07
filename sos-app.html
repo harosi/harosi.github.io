@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SOS Idős- és Családvédelem - Részletek | Hárosi Fejlesztések</title>
+  <title>SOS Idős- és Családvédelem - Részletek & Telepítés | Hárosi Fejlesztések</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
     body { background-color: #f8fafc; color: #1e293b; line-height: 1.6; }
@@ -17,7 +17,7 @@
     .back-link:hover { text-decoration: underline; }
 
     .card { background: white; border-radius: 14px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.07); padding: 2rem; margin-bottom: 2rem; border: 1px solid #e2e8f0; }
-    .card h2 { color: #0f172a; font-size: 1.4rem; margin-bottom: 1rem; border-bottom: 2px solid #f1f5f9; padding-bottom: 0.5rem; }
+    .card h2 { color: #0f172a; font-size: 1.35rem; margin-bottom: 1rem; border-bottom: 2px solid #f1f5f9; padding-bottom: 0.5rem; }
     
     .target-group { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; margin-top: 1.25rem; }
     .target-item { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px; padding: 1.2rem; }
@@ -25,19 +25,37 @@
     .target-item p { font-size: 0.92rem; color: #475569; line-height: 1.5; }
 
     .widget-box { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 10px; padding: 1.5rem; margin-top: 1rem; }
-    .widget-box h3 { color: #1d4ed8; font-size: 1.2rem; margin-bottom: 0.5rem; }
+    .widget-box h3 { color: #1d4ed8; font-size: 1.15rem; margin-bottom: 0.5rem; }
     .widget-box p { color: #1e40af; font-size: 0.95rem; margin-bottom: 1.2rem; }
 
     .feature-list { list-style: none; margin-top: 1rem; }
     .feature-list li { margin-bottom: 0.85rem; padding-left: 1.8rem; position: relative; font-size: 0.95rem; color: #334155; }
     .feature-list li::before { content: "✔"; position: absolute; left: 0; color: #16a34a; font-weight: bold; }
 
+    /* Lépések formázása */
+    .step-list { list-style: none; counter-reset: step-counter; margin-top: 1rem; }
+    .step-list li { counter-increment: step-counter; position: relative; padding-left: 2.8rem; margin-bottom: 1.25rem; }
+    .step-list li::before { content: counter(step-counter); position: absolute; left: 0; top: 0; width: 2rem; height: 2rem; background: #2563eb; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.9rem; }
+    .step-list strong { color: #0f172a; display: block; margin-bottom: 0.2rem; }
+    .step-list p { font-size: 0.92rem; color: #475569; margin: 0; }
+
+    /* Rendszerkövetelmények & Figyelmeztetés */
+    .info-alert { background: #fefce8; border: 1px solid #fef08a; border-radius: 10px; padding: 1.2rem; margin-top: 1rem; }
+    .info-alert strong { color: #854d0e; display: block; margin-bottom: 0.3rem; font-size: 1rem; }
+    .info-alert p { font-size: 0.9rem; color: #713f12; margin: 0; }
+
+    .ios-box { background: #f8fafc; border-left: 4px solid #64748b; padding: 1rem 1.2rem; margin-top: 1rem; border-radius: 0 8px 8px 0; }
+    .ios-box strong { color: #334155; display: block; margin-bottom: 0.3rem; }
+    .ios-box p { font-size: 0.88rem; color: #64748b; margin: 0; }
+
+    /* Widget mini grafika */
     .widget-badge { display: inline-flex; border-radius: 10px; overflow: hidden; box-shadow: 0 3px 6px rgba(0,0,0,0.18); font-family: sans-serif; font-weight: bold; text-align: center; height: 34px; margin-bottom: 0.75rem; }
     .widget-badge .sos { background-color: #dc2626; color: white; padding: 3px 10px; display: flex; flex-direction: column; justify-content: center; align-items: center; min-width: 60px; }
     .widget-badge .gps { background-color: #1d4ed8; color: white; padding: 3px 10px; display: flex; flex-direction: column; justify-content: center; align-items: center; min-width: 60px; }
     .widget-badge .title { font-size: 0.8rem; line-height: 1.1; letter-spacing: 0.4px; }
     .widget-badge .subtitle { font-size: 0.5rem; font-weight: 700; opacity: 0.95; letter-spacing: 0.2px; }
 
+    /* Vásárlás doboz */
     .price-box { background: white; border: 2px solid #2563eb; border-radius: 14px; padding: 2.2rem 1.5rem; text-align: center; max-width: 520px; margin: 2rem auto; box-shadow: 0 10px 15px -3px rgba(37,99,235,0.1); }
     .badge { display: inline-block; background: #dbeafe; color: #1d4ed8; padding: 0.3rem 0.8rem; border-radius: 9999px; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.75rem; }
     .price { font-size: 2.3rem; font-weight: 800; color: #0f172a; margin-bottom: 0.5rem; }
@@ -62,28 +80,28 @@
       <a href="index.html" class="back-link">← Vissza a főoldalra</a>
     </div>
 
-    <!-- Áttekintés -->
+    <!-- 1. Alkalmazás áttekintése -->
     <div class="card">
       <h2>Mi az az SOS Idős- és Családvédelem?</h2>
-      <p>Egy praktikus, Android-alapú segélykérő alkalmazás, amely arra született, hogy veszélyhelyzetben vagy eltévedéskor azonnal összekösse a bajbajutottat a hozzátartozóival. Nincs szükség bonyolult térképkezelésre, menükben való lapozásra vagy koordináták másolására.</p>
+      <p>Egy praktikus, Android-alapú segélykérő alkalmazás, amely arra született, hogy veszélyhelyzetben vagy eltévedéskor azonnal összekösse a bajbajutottat a hozzátartozóival. Nincs szükség bonyolult térképkezelésre, menükben való lapozásra vagy koordináták gépelésére.</p>
 
       <div class="target-group">
         <div class="target-item">
           <strong>👵 Időseknek</strong>
-          <p>Biztonságot nyújt séta vagy utazás közben. Hirtelen rosszullét, tájékozódási bizonytalanság esetén egyetlen érintéssel tudatni tudja a családdal, hol tartózkodik.</p>
+          <p>Biztonságot nyújt séta vagy ügyintézés közben. Hirtelen tájékozódási bizonytalanság vagy rosszullét esetén egyetlen érintéssel tudatja a hozzátartozóval a helyét.</p>
         </div>
         <div class="target-item">
           <strong>🎒 Gyermekeknek</strong>
-          <p>Iskolába járáskor, edzés után vagy kiránduláson könnyen bajba juthat egy gyermek is. Egy gombnyomással elküldheti a szülőknek a pontos helyét.</p>
+          <p>Iskolába menet, délutáni edzés után vagy kiránduláson könnyen bajba juthat a gyermek. Egyetlen gombnyomással pontos helyadatot küld a szülőknek.</p>
         </div>
         <div class="target-item">
           <strong>🧭 GPS-ben bizonytalanoknak</strong>
-          <p>Bárkinek, aki nehezebben igazodik el az okostelefon térképfunkcióiban. Nem kell címet keresni, az app automatikusan elvégzi a pontos helymeghatározást.</p>
+          <p>Bárkinek, aki nehezebben boldogul a térképalkalmazásokkal. Nem kell címet keresgélni, az app automatikusan lekéri a pontos műholdas pozíciót.</p>
         </div>
       </div>
     </div>
 
-    <!-- Kiemelt Widget szekció -->
+    <!-- 2. Kiemelt Kezdőképernyő Widget -->
     <div class="card">
       <h2>Kiemelt funkció: „SOS – Eltévedtem!” Képernyő Widget</h2>
       
@@ -104,18 +122,59 @@
         
         <ul class="feature-list">
           <li><strong>Nulla technikai felkészültséget igényel:</strong> Megérintésekor a rendszer önállóan lekéri a GPS műholdak adatait.</li>
-          <li><strong>Kattinthathó térképes SMS:</strong> A hozzátartozók telefonjára azonnal megérkezik a pontos szélességi/hosszúsági adat, valamint egy közvetlen Google Térkép link, amelyre kattintva a családtag máris indíthatja a helyszínre vezető navigációt.</li>
-          <li><strong>Félrenyomásbiztos kialakítás:</strong> Kifejezetten remegő kézre, stresszhelyzetre és gyengébb látásra optimalizált méret és kontraszt.</li>
-          <li><strong>Megbízható, közvetlen kapcsolat:</strong> SMS-alapú riasztás, így nem szükséges bonyolult külső chat-rendszerekben bejelentkezve lenni.</li>
+          <li><strong>Kattintható térképes SMS:</strong> A családtagok telefonjára azonnal megérkezik a pontos szélességi/hosszúsági koordináta, valamint egy közvetlen Google Térkép link, amelyre kattintva azonnal indítható a helyszínre vezető navigáció.</li>
+          <li><strong>Félrenyomásbiztos kialakítás:</strong> Kifejezetten remegő kézre, stresszhelyzetre és gyengébb látásra optimalizált nagy méret és kontraszt.</li>
+          <li><strong>Megbízható, közvetlen kapcsolat:</strong> SMS-alapú riasztás, így nem szükséges bonyolult külső chat-rendszerekben vagy fiókokban bejelentkezve lenni.</li>
         </ul>
       </div>
     </div>
 
-    <!-- Vásárlás doboz -->
+    <!-- 3. Rendszerkövetelmények & Kompatibilitás (Android vs iOS) -->
+    <div class="card">
+      <h2>Rendszerkövetelmények és Kompatibilitás</h2>
+      <p>Az alkalmazás maximálisan kihasználja az Android operációs rendszer hardveres és közvetlen SMS-kezelő képességeit.</p>
+
+      <div class="info-alert">
+        <strong>📱 Támogatott rendszer: Android (7.0 vagy újabb)</strong>
+        <p>Minden elterjedt Androidos okostelefonnal kompatibilis (Samsung, Xiaomi, Huawei, Motorola, Nokia stb.). Beépített GPS vevő és aktív SIM kártya (SMS küldéshez) szükséges.</p>
+      </div>
+
+      <div class="ios-box">
+        <strong>🍎 Mi a helyzet az iPhone (Apple iOS) készülékekkel?</strong>
+        <p><strong>Nem kompatibilis.</strong> Az Apple biztonsági szabályzata (sandbox védelme) szigorúan tiltja, hogy külső appok vagy kezdőképernyős widgetek a felhasználó manuális megerősítése nélkül a háttérben közvetlen SMS-t küldjenek. Mivel vészhelyzetben a legfontosabb az egyérintéses, azonnali riasztás, az alkalmazás kizárólag Android platformra érhető el.</p>
+      </div>
+    </div>
+
+    <!-- 4. Telepítési és Beállítási Útmutató -->
+    <div class="card">
+      <h2>Telepítési és Beállítási Útmutató</h2>
+      <p>A vásárlást követően az alkalmazás perceken belül üzembe helyezhető:</p>
+
+      <ol class="step-list">
+        <li>
+          <strong>1. Lépés: Alkalmazás letöltése és telepítése (APK)</strong>
+          <p>A sikeres megrendelés után megnyíló oldalon töltsd le az <code>sos_eltvedtem.apk</code> fájlt. A letöltés befejezése után koppints a fájlra a telepítéshez. (Ha a telefon rákérdez, engedélyezd az <em>„Ismeretlen alkalmazások telepítése”</em> opciót a böngészőnek).</p>
+        </li>
+        <li>
+          <strong>2. Lépés: Engedélyek jóváhagyása az első indításkor</strong>
+          <p>Nyisd meg az alkalmazást. A működéshez feltétlenül engedélyezni kell a <strong>Helyadatokhoz való hozzáférést (GPS)</strong> és az <strong>SMS-küldési jogosultságot</strong>, hogy baj esetén azonnal kiküldhesse a riasztást.</p>
+        </li>
+        <li>
+          <strong>3. Lépés: Értesítendő telefonszám(ok) rögzítése</strong>
+          <p>Add meg a családtagok vagy segítők telefonszámát a beállításokban nemzetközi formátumban (pl. <code>+3630...</code>), akik eltévedés vagy rosszullét esetén a riasztó SMS-t kapják.</p>
+        </li>
+        <li>
+          <strong>4. Lépés: A Widget kirakása a kezdőképernyőre (Ajánlott!)</strong>
+          <p>Menj ki a telefon főképernyőjére, és tartsd az ujjad egy üres területen hosszan. Válaszd a <strong>Widgetek</strong> lehetőséget, keresd meg az <strong>SOS</strong> ikont, majd húzd ki a kezdőképernyő legkönnyebben elérhető pontjára.</p>
+        </li>
+      </ol>
+    </div>
+
+    <!-- 5. Vásárlás doboz -->
     <div class="price-box">
       <span class="badge">Egyszeri Díj • Örökös Licenc</span>
       <div class="price">2 500 Ft <span>/ készülék</span></div>
-      <p style="color: #64748b; font-size: 0.95rem; margin-top: 0.5rem;">Nincsenek havi költségek és rejtett díjak. Teljes funkcionalitás és ingyenes jövőbeli frissítések.</p>
+      <p style="color: #64748b; font-size: 0.95rem; margin-top: 0.5rem;">Nincsenek havi előfizetések vagy rejtett díjak. Teljes funkcionalitás és ingyenes jövőbeli frissítések.</p>
       
       <a href="https://buy.stripe.com/test_3cIaEYgqceh6dUMfQr7Re00" class="btn">Licenc Vásárlása Bankkártyával</a>
       
