@@ -7,32 +7,27 @@
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
     body { background-color: #f8fafc; color: #1e293b; line-height: 1.6; }
-    header { background: #0f172a; color: white; padding: 2.8rem 1rem; text-align: center; }
-    .header-title-container { display: flex; align-items: center; justify-content: center; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 0.75rem; }
+    header { background: #0f172a; color: white; padding: 3rem 1rem; text-align: center; }
+    .header-title-container { display: flex; align-items: center; justify-content: center; gap: 1.2rem; flex-wrap: wrap; margin-bottom: 0.6rem; }
     header h1 { font-size: 2.3rem; font-weight: 800; margin: 0; }
-    header p { color: #94a3b8; font-size: 1.1rem; max-width: 700px; margin: 0 auto; }
+    header p { color: #94a3b8; font-size: 1.15rem; max-width: 700px; margin: 0 auto; }
     
-    /* Widget grafika stílusa */
-    .widget-badge { display: inline-flex; border-radius: 14px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.35); font-family: sans-serif; font-weight: bold; text-align: center; height: 48px; border: 1px solid rgba(255,255,255,0.15); }
-    .widget-badge .sos { background-color: #dc2626; color: white; padding: 5px 14px; display: flex; flex-direction: column; justify-content: center; align-items: center; min-width: 82px; }
-    .widget-badge .gps { background-color: #1d4ed8; color: white; padding: 5px 14px; display: flex; flex-direction: column; justify-content: center; align-items: center; min-width: 82px; }
-    .widget-badge .title { font-size: 1.05rem; line-height: 1.1; letter-spacing: 0.5px; }
-    .widget-badge .subtitle { font-size: 0.6rem; font-weight: 700; opacity: 0.95; letter-spacing: 0.3px; }
+    .widget-badge { display: inline-flex; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.35); font-family: sans-serif; font-weight: bold; text-align: center; height: 44px; border: 1px solid rgba(255,255,255,0.15); }
+    .widget-badge .sos { background-color: #dc2626; color: white; padding: 4px 12px; display: flex; flex-direction: column; justify-content: center; align-items: center; min-width: 75px; }
+    .widget-badge .gps { background-color: #1d4ed8; color: white; padding: 4px 12px; display: flex; flex-direction: column; justify-content: center; align-items: center; min-width: 75px; }
+    .widget-badge .title { font-size: 0.95rem; line-height: 1.1; letter-spacing: 0.5px; }
+    .widget-badge .subtitle { font-size: 0.55rem; font-weight: 700; opacity: 0.95; }
 
-    .container { max-width: 1200px; margin: 2.5rem auto; padding: 0 1.5rem; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; align-items: start; }
-    .card { background: white; border-radius: 14px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.07), 0 2px 4px -2px rgba(0,0,0,0.05); padding: 2rem; border: 1px solid #e2e8f0; display: flex; flex-direction: column; justify-content: space-between; min-height: 100%; }
+    .container { max-width: 1200px; margin: 3rem auto; padding: 0 1.5rem; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; align-items: stretch; }
+    .card { background: white; border-radius: 14px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.07); padding: 2rem; border: 1px solid #e2e8f0; display: flex; flex-direction: column; justify-content: space-between; }
     .card h2 { font-size: 1.35rem; margin-bottom: 0.75rem; color: #0f172a; }
     .badge { display: inline-block; background: #e0f2fe; color: #0369a1; padding: 0.3rem 0.75rem; border-radius: 9999px; font-size: 0.8rem; font-weight: 600; margin-bottom: 1rem; width: fit-content; }
     .card p { color: #64748b; font-size: 0.95rem; margin-bottom: 1.25rem; line-height: 1.5; }
-    .features { list-style: none; margin-bottom: 1.5rem; }
-    .features li { font-size: 0.9rem; color: #334155; margin-bottom: 0.6rem; padding-left: 1.4rem; position: relative; }
-    .features li::before { content: "•"; position: absolute; left: 0.4rem; color: #2563eb; font-weight: bold; }
-    .highlight-box { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 0.85rem; margin-bottom: 1.25rem; }
-    .highlight-box strong { color: #1d4ed8; font-size: 0.9rem; display: block; margin-bottom: 0.3rem; }
-    .highlight-box p { font-size: 0.85rem; color: #1e40af; margin-bottom: 0; line-height: 1.4; }
+    .details-link { display: inline-block; margin-bottom: 1.25rem; color: #2563eb; text-decoration: none; font-weight: 600; font-size: 0.9rem; }
+    .details-link:hover { text-decoration: underline; }
     .price { font-size: 1.6rem; font-weight: bold; color: #0f172a; margin-bottom: 1.25rem; margin-top: auto; }
-    .btn { display: inline-block; text-align: center; background: #2563eb; color: white; padding: 0.85rem 1.2rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: background 0.2s; border: none; cursor: pointer; }
+    .btn { display: inline-block; text-align: center; background: #2563eb; color: white; padding: 0.85rem 1.2rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: background 0.2s; }
     .btn:hover { background: #1d4ed8; }
     .btn-secondary { background: #475569; }
     .btn-secondary:hover { background: #334155; }
@@ -44,8 +39,6 @@
   <header>
     <div class="header-title-container">
       <h1>Hárosi Fejlesztések</h1>
-      
-      <!-- Pontos SOS / GPS Képernyő Widget grafika a cím mellett -->
       <div class="widget-badge">
         <div class="sos">
           <span class="title">SOS</span>
@@ -90,23 +83,12 @@
       </div>
 
       <!-- 3. SOS Idős- és Családvédelem -->
-      <div class="card" style="border: 2px solid #2563eb;">
+      <div class="card">
         <div>
           <span class="badge" style="background: #dbeafe; color: #1d4ed8;">Mobilbiztonság</span>
           <h2>SOS Idős- és Családvédelem</h2>
-          <p>Androidos segélykérő app egyérintéses riasztással, automatikus GPS-koordináta és térképes link küldéssel családtagoknak.</p>
-          
-          <div class="highlight-box">
-            <strong>📍 „SOS – Eltévedtem!” Képernyő Widget</strong>
-            <p>Közvetlenül a kezdőképernyőre helyezhető nagyméretű, félrenyomásbiztos gomb. Menük nélkül, egyetlen érintéssel azonnal elküldi a pontos tartózkodási helyet a segítőknek.</p>
-          </div>
-
-          <ul class="features">
-            <li><strong>👵 Időseknek:</strong> Egyszerű használat tájékozódási zavar vagy rosszullét esetére.</li>
-            <li><strong>🎒 Gyermekeknek:</strong> Gyors segítségkérés iskolába menet vagy kiránduláson.</li>
-            <li><strong>🧭 GPS-ben bizonytalanoknak:</strong> Nem igényel technikai jártasságot, a helyzetküldés teljesen automatikus.</li>
-            <li><strong>Örökös licenc:</strong> Egyszeri díj, nincsenek rejtett havi költségek.</li>
-          </ul>
+          <p>Okostelefonos vészjelző és képernyő widget: egyérintéses segítségkérés valós idejű GPS-helyzetküldéssel idős hozzátartozók és gyermekek védelmére.</p>
+          <a href="sos-app.html" class="details-link">Részletes bemutató & Funkciók →</a>
         </div>
         <div>
           <div class="price">2 500 Ft</div>
