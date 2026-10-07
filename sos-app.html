@@ -39,7 +39,11 @@
     .step-list strong { color: #0f172a; display: block; margin-bottom: 0.2rem; }
     .step-list p { font-size: 0.92rem; color: #475569; margin: 0; }
 
-    /* Rendszerkövetelmények & Figyelmeztetés */
+    /* Figyelmeztetések és dobozok */
+    .warning-box { background: #fff1f2; border: 1px solid #fecdd3; border-left: 4px solid #e11d48; border-radius: 0 10px 10px 0; padding: 1.2rem; margin-top: 1.25rem; }
+    .warning-box strong { color: #be123c; display: block; font-size: 1rem; margin-bottom: 0.35rem; }
+    .warning-box p { font-size: 0.9rem; color: #9f1239; margin: 0; line-height: 1.45; }
+
     .info-alert { background: #fefce8; border: 1px solid #fef08a; border-radius: 10px; padding: 1.2rem; margin-top: 1rem; }
     .info-alert strong { color: #854d0e; display: block; margin-bottom: 0.3rem; font-size: 1rem; }
     .info-alert p { font-size: 0.9rem; color: #713f12; margin: 0; }
@@ -56,7 +60,7 @@
     .widget-badge .subtitle { font-size: 0.5rem; font-weight: 700; opacity: 0.95; letter-spacing: 0.2px; }
 
     /* Vásárlás doboz */
-    .price-box { background: white; border: 2px solid #2563eb; border-radius: 14px; padding: 2.2rem 1.5rem; text-align: center; max-width: 520px; margin: 2rem auto; box-shadow: 0 10px 15px -3px rgba(37,99,235,0.1); }
+    .price-box { background: white; border: 2px solid #2563eb; border-radius: 14px; padding: 2.2rem 1.5rem; text-align: center; max-width: 540px; margin: 2rem auto; box-shadow: 0 10px 15px -3px rgba(37,99,235,0.1); }
     .badge { display: inline-block; background: #dbeafe; color: #1d4ed8; padding: 0.3rem 0.8rem; border-radius: 9999px; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.75rem; }
     .price { font-size: 2.3rem; font-weight: 800; color: #0f172a; margin-bottom: 0.5rem; }
     .price span { font-size: 1rem; font-weight: normal; color: #64748b; }
@@ -83,16 +87,16 @@
     <!-- 1. Alkalmazás áttekintése -->
     <div class="card">
       <h2>Mi az az SOS Idős- és Családvédelem?</h2>
-      <p>Egy praktikus, Android-alapú segélykérő alkalmazás, amely arra született, hogy veszélyhelyzetben vagy eltévedéskor azonnal összekösse a bajbajutottat a hozzátartozóival. Nincs szükség bonyolult térképkezelésre, menükben való lapozásra vagy koordináták gépelésére.</p>
+      <p>Egy praktikus, Android-alapú segélykérő alkalmazás, amely arra született, hogy veszélyhelyzetben vagy eltévedéskor azonnal összekösse a bajbajutottat a hozzátartozóival. Nincs szükség bonyolult térképkezelésre, menükben való lapozásra vagy koordináták keresésére.</p>
 
       <div class="target-group">
         <div class="target-item">
           <strong>👵 Időseknek</strong>
-          <p>Biztonságot nyújt séta vagy ügyintézés közben. Hirtelen tájékozódási bizonytalanság vagy rosszullét esetén egyetlen érintéssel tudatja a hozzátartozóval a helyét.</p>
+          <p>Biztonságot nyújt séta vagy ügyintézés közben. Hirtelen tájékozódási bizonytalanság vagy rosszullét esetén egyetlen érintéssel tudatja a hozzátartozóval a helyzetét.</p>
         </div>
         <div class="target-item">
           <strong>🎒 Gyermekeknek</strong>
-          <p>Iskolába menet, délutáni edzés után vagy kiránduláson könnyen bajba juthat a gyermek. Egyetlen gombnyomással pontos helyadatot küld a szülőknek.</p>
+          <p>Iskolába menet, délutáni edzés után vagy kiránduláson bajba juthat a gyermek is. Egyetlen gombnyomással azonnali helyadatot küld a szülőknek.</p>
         </div>
         <div class="target-item">
           <strong>🧭 GPS-ben bizonytalanoknak</strong>
@@ -122,7 +126,7 @@
         
         <ul class="feature-list">
           <li><strong>Nulla technikai felkészültséget igényel:</strong> Megérintésekor a rendszer önállóan lekéri a GPS műholdak adatait.</li>
-          <li><strong>Kattintható térképes SMS:</strong> A családtagok telefonjára azonnal megérkezik a pontos szélességi/hosszúsági koordináta, valamint egy közvetlen Google Térkép link, amelyre kattintva azonnal indítható a helyszínre vezető navigáció.</li>
+          <li><strong>Kattintható térképes SMS:</strong> A családtagok telefonjára azonnal megérkezik a pontos szélességi/hosszúsági koordináta, valamint egy közvetlen Google Térkép link, amire koppintva a hozzátartozó máris indíthatja a navigációt a helyszínre.</li>
           <li><strong>Félrenyomásbiztos kialakítás:</strong> Kifejezetten remegő kézre, stresszhelyzetre és gyengébb látásra optimalizált nagy méret és kontraszt.</li>
           <li><strong>Megbízható, közvetlen kapcsolat:</strong> SMS-alapú riasztás, így nem szükséges bonyolult külső chat-rendszerekben vagy fiókokban bejelentkezve lenni.</li>
         </ul>
@@ -132,7 +136,7 @@
     <!-- 3. Rendszerkövetelmények & Kompatibilitás (Android vs iOS) -->
     <div class="card">
       <h2>Rendszerkövetelmények és Kompatibilitás</h2>
-      <p>Az alkalmazás maximálisan kihasználja az Android operációs rendszer hardveres és közvetlen SMS-kezelő képességeit.</p>
+      <p>Az alkalmazás maximálisan kihasználja az Android rendszer hardveres és közvetlen SMS-kezelő képességeit.</p>
 
       <div class="info-alert">
         <strong>📱 Támogatott rendszer: Android (7.0 vagy újabb)</strong>
@@ -141,40 +145,50 @@
 
       <div class="ios-box">
         <strong>🍎 Mi a helyzet az iPhone (Apple iOS) készülékekkel?</strong>
-        <p><strong>Nem kompatibilis.</strong> Az Apple biztonsági szabályzata (sandbox védelme) szigorúan tiltja, hogy külső appok vagy kezdőképernyős widgetek a felhasználó manuális megerősítése nélkül a háttérben közvetlen SMS-t küldjenek. Mivel vészhelyzetben a legfontosabb az egyérintéses, azonnali riasztás, az alkalmazás kizárólag Android platformra érhető el.</p>
+        <p><strong>Nem kompatibilis.</strong> Az Apple biztonsági háttérfolyamatai (sandbox védelme) tiltják, hogy külső appok vagy kezdőképernyős widgetek a felhasználó kézi jóváhagyása nélkül a háttérben közvetlen SMS-t küldjenek. Mivel vészhelyzetben a legfontosabb az egyérintéses azonnali riasztás, az alkalmazás kizárólag Android platformra érhető el.</p>
       </div>
     </div>
 
-    <!-- 4. Telepítési és Beállítási Útmutató -->
+    <!-- 4. Telepítési, Aktiválási és Beállítási Útmutató -->
     <div class="card">
-      <h2>Telepítési és Beállítási Útmutató</h2>
-      <p>A vásárlást követően az alkalmazás perceken belül üzembe helyezhető:</p>
+      <h2>Telepítési és Aktiválási Útmutató</h2>
+      <p>A vásárlást követően az alkalmazás perceken belül üzembe helyezhető az alábbi lépésekkel:</p>
 
       <ol class="step-list">
         <li>
           <strong>1. Lépés: Alkalmazás letöltése és telepítése (APK)</strong>
-          <p>A sikeres megrendelés után megnyíló oldalon töltsd le az <code>sos_eltvedtem.apk</code> fájlt. A letöltés befejezése után koppints a fájlra a telepítéshez. (Ha a telefon rákérdez, engedélyezd az <em>„Ismeretlen alkalmazások telepítése”</em> opciót a böngészőnek).</p>
+          <p>A sikeres megrendelés után megnyíló oldalon töltsd le az <code>sos_eltvedtem.apk</code> fájlt. A letöltés után koppints a fájlra a telepítéshez. (Ha a telefon rákérdez, engedélyezd az <em>„Ismeretlen alkalmazások telepítése”</em> opciót a böngészőnek).</p>
         </li>
         <li>
           <strong>2. Lépés: Engedélyek jóváhagyása az első indításkor</strong>
-          <p>Nyisd meg az alkalmazást. A működéshez feltétlenül engedélyezni kell a <strong>Helyadatokhoz való hozzáférést (GPS)</strong> és az <strong>SMS-küldési jogosultságot</strong>, hogy baj esetén azonnal kiküldhesse a riasztást.</p>
+          <p>Nyisd meg az appot. A működéshez engedélyezni kell a <strong>Helyadatokhoz való hozzáférést (GPS)</strong> és az <strong>SMS-küldési jogosultságot</strong>, hogy baj esetén azonnal kiküldhesse a riasztást.</p>
         </li>
         <li>
-          <strong>3. Lépés: Értesítendő telefonszám(ok) rögzítése</strong>
-          <p>Add meg a családtagok vagy segítők telefonszámát a beállításokban nemzetközi formátumban (pl. <code>+3630...</code>), akik eltévedés vagy rosszullét esetén a riasztó SMS-t kapják.</p>
+          <strong>3. Lépés: Licenckulcs aktiválása</strong>
+          <p>Az alkalmazás első indításakor megjelenik a készülék egyedi azonosítója. Írd be a vásárlás után kapott egyedi licenckulcsot az aktiváláshoz. A sikeres ellenőrzés után a szoftver azonnal korlátlanul használhatóvá válik.</p>
         </li>
         <li>
-          <strong>4. Lépés: A Widget kirakása a kezdőképernyőre (Ajánlott!)</strong>
-          <p>Menj ki a telefon főképernyőjére, és tartsd az ujjad egy üres területen hosszan. Válaszd a <strong>Widgetek</strong> lehetőséget, keresd meg az <strong>SOS</strong> ikont, majd húzd ki a kezdőképernyő legkönnyebben elérhető pontjára.</p>
+          <strong>4. Lépés: Értesítendő telefonszám(ok) rögzítése</strong>
+          <p>Add meg a családtagok vagy segítők telefonszámát a beállításokban nemzetközi formátumban (pl. <code>+3630...</code>), akik eltévedés vagy rosszullét esetén az azonnali segélykérő SMS-t kapják.</p>
+        </li>
+        <li>
+          <strong>5. Lépés: A Widget kirakása a kezdőképernyőre (Ajánlott!)</strong>
+          <p>Lépj ki a telefon főképernyőjére, tartsd hosszan az ujjad egy üres területen. Válaszd a <strong>Widgetek</strong> lehetőséget, keresd meg az <strong>SOS</strong> ikont, majd húzd ki a kezdőképernyő legkönnyebben elérhető helyére.</p>
         </li>
       </ol>
+
+      <!-- Kiemelt Hardveres Licenc Figyelmeztetés -->
+      <div class="warning-box">
+        <strong>⚠️ Fontos licencelési tudnivaló: Hardverhez kötött aktiválás!</strong>
+        <p>A megvásárolt örökös licenckulcs <strong>kizárólag arra az egy adott mobiltelefonra érvényes, amelyre aktiváltad</strong>. A licenc a készülék egyedi hardverazonosítójához kapcsolódik. Az alkalmazás másolása vagy átvitele egy másik telefonra nem működik; új készülék cseréje esetén új aktiváló kód vásárlása szükséges.</p>
+      </div>
     </div>
 
     <!-- 5. Vásárlás doboz -->
     <div class="price-box">
-      <span class="badge">Egyszeri Díj • Örökös Licenc</span>
+      <span class="badge">Egyszeri Díj • Készülékspecifikus Örök Licenc</span>
       <div class="price">2 500 Ft <span>/ készülék</span></div>
-      <p style="color: #64748b; font-size: 0.95rem; margin-top: 0.5rem;">Nincsenek havi előfizetések vagy rejtett díjak. Teljes funkcionalitás és ingyenes jövőbeli frissítések.</p>
+      <p style="color: #64748b; font-size: 0.95rem; margin-top: 0.5rem;">Nincsenek havi előfizetések vagy rejtett díjak. Teljes funkcionalitás 1 készülékre, ingyenes jövőbeli frissítésekkel.</p>
       
       <a href="https://buy.stripe.com/test_3cIaEYgqceh6dUMfQr7Re00" class="btn">Licenc Vásárlása Bankkártyával</a>
       
