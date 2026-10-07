@@ -32,6 +32,10 @@
     .feature-list li { margin-bottom: 0.85rem; padding-left: 1.8rem; position: relative; font-size: 0.95rem; color: #334155; }
     .feature-list li::before { content: "✔"; position: absolute; left: 0; color: #16a34a; font-weight: bold; }
 
+    /* Minta SMS előnézeti doboz */
+    .sms-preview { background: #1e293b; color: #e2e8f0; border-radius: 10px; padding: 1.2rem; margin: 1.2rem 0; font-family: monospace; font-size: 0.92rem; border-left: 4px solid #38bdf8; line-height: 1.6; }
+    .sms-preview strong { color: #38bdf8; }
+
     /* Lépések formázása */
     .step-list { list-style: none; counter-reset: step-counter; margin-top: 1rem; }
     .step-list li { counter-increment: step-counter; position: relative; padding-left: 2.8rem; margin-bottom: 1.25rem; }
@@ -39,7 +43,7 @@
     .step-list strong { color: #0f172a; display: block; margin-bottom: 0.2rem; }
     .step-list p { font-size: 0.92rem; color: #475569; margin: 0; }
 
-    /* Figyelmeztetések és dobozok */
+    /* Figyelmeztetések */
     .warning-box { background: #fff1f2; border: 1px solid #fecdd3; border-left: 4px solid #e11d48; border-radius: 0 10px 10px 0; padding: 1.2rem; margin-top: 1.25rem; }
     .warning-box strong { color: #be123c; display: block; font-size: 1rem; margin-bottom: 0.35rem; }
     .warning-box p { font-size: 0.9rem; color: #9f1239; margin: 0; line-height: 1.45; }
@@ -96,7 +100,7 @@
         </div>
         <div class="target-item">
           <strong>🎒 Gyermekeknek</strong>
-          <p>Iskolába menet, délutáni edzés után vagy kiránduláson bajba juthat a gyermek is. Egyetlen gombnyomással azonnali helyadatot küld a szülőknek.</p>
+          <p>Iskolába menet, edzés után vagy kiránduláson bajba juthat a gyermek is. Egyetlen gombnyomással azonnali helyadatot küld a szülőknek.</p>
         </div>
         <div class="target-item">
           <strong>🧭 GPS-ben bizonytalanoknak</strong>
@@ -105,9 +109,9 @@
       </div>
     </div>
 
-    <!-- 2. Kiemelt Kezdőképernyő Widget -->
+    <!-- 2. Kiemelt Kezdőképernyő Widget & Okos Funkciók -->
     <div class="card">
-      <h2>Kiemelt funkció: „SOS – Eltévedtem!” Képernyő Widget</h2>
+      <h2>Kiemelt funkciók & „SOS – Eltévedtem!” Képernyő Widget</h2>
       
       <div class="widget-badge">
         <div class="sos">
@@ -126,10 +130,21 @@
         
         <ul class="feature-list">
           <li><strong>Nulla technikai felkészültséget igényel:</strong> Megérintésekor a rendszer önállóan lekéri a GPS műholdak adatait.</li>
-          <li><strong>Kattintható térképes SMS:</strong> A családtagok telefonjára azonnal megérkezik a pontos szélességi/hosszúsági koordináta, valamint egy közvetlen Google Térkép link, amire koppintva a hozzátartozó máris indíthatja a navigációt a helyszínre.</li>
-          <li><strong>Félrenyomásbiztos kialakítás:</strong> Kifejezetten remegő kézre, stresszhelyzetre és gyengébb látásra optimalizált nagy méret és kontraszt.</li>
-          <li><strong>Megbízható, közvetlen kapcsolat:</strong> SMS-alapú riasztás, így nem szükséges bonyolult külső chat-rendszerekben vagy fiókokban bejelentkezve lenni.</li>
+          <li><strong>Kulturált, dinamikus kontaktszemély lista:</strong> Kényelmes névjegyzékszerű felületen rögzíthetők a hozzátartozók (Név + Telefonszám), egyetlen kattintással hozzáadva vagy módosítva.</li>
+          <li><strong>🏠 „Otthon” GPS bázis és távolságszámítás:</strong> Rögzíthető az otthoni báziskoordináta. Eltévedéskor a szoftver automatikusan kiszámítja és beírja az SMS-be a pontos távolságot (pl. <em>„Távolság az otthontól: kb. 4,2 km”</em>), így a család azonnal tudja, milyen messzire került.</li>
+          <li><strong>📞 Küldő telefonszámának közvetlen kiírása az SMS-ben:</strong> Ha az SMS-t a családtag továbbítja (pl. szomszédnak, mentőknek vagy polgárőröknek), a szövegből rögtön látható a segélykérő saját száma, és azonnal visszahívható.</li>
+          <li><strong>Kattintható Google Térkép link:</strong> A hozzátartozó egyetlen koppintással megnyithatja a pontos helyszínt, és azonnal indíthatja a helyszínre vezető navigációt.</li>
+          <li><strong>Félrenyomásbiztos és megbízható:</strong> Kifejezetten remegő kézre és gyengébb látásra tervezve; nem igényel internetes chat-fiókokat, közvetlen SMS-t küld.</li>
         </ul>
+      </div>
+
+      <h3 style="font-size: 1.05rem; margin-top: 1.5rem; color: #0f172a;">📩 Riasztáskor küldött SMS minta:</h3>
+      <div class="sms-preview">
+        [SOS SEGÉLYKÉRÉS! Eltévedtem / segítségre van szükségem]<br>
+        <strong>📞 Segélykérő száma:</strong> +36 30 123 4567<br>
+        <strong>🏠 Távolság otthontól:</strong> kb. 3,8 km<br>
+        <strong>📍 Helyzet:</strong> 47.4979, 19.0402<br>
+        <strong>🗺️ Térkép:</strong> https://maps.google.com/?q=47.4979,19.0402
       </div>
     </div>
 
@@ -145,14 +160,14 @@
 
       <div class="ios-box">
         <strong>🍎 Mi a helyzet az iPhone (Apple iOS) készülékekkel?</strong>
-        <p><strong>Nem kompatibilis.</strong> Az Apple biztonsági háttérfolyamatai (sandbox védelme) tiltják, hogy külső appok vagy kezdőképernyős widgetek a felhasználó kézi jóváhagyása nélkül a háttérben közvetlen SMS-t küldjenek. Mivel vészhelyzetben a legfontosabb az egyérintéses azonnali riasztás, az alkalmazás kizárólag Android platformra érhető el.</p>
+        <p><strong>Nem kompatibilis.</strong> Az Apple biztonsági szabályzata (sandbox védelme) tiltja, hogy külső appok vagy widgetek a felhasználó kézi jóváhagyása nélkül közvetlen SMS-t küldjenek a háttérben. Mivel vészhelyzetben a legfontosabb az egyérintéses azonnali riasztás, az alkalmazás kizárólag Android platformra érhető el.</p>
       </div>
     </div>
 
     <!-- 4. Telepítési, Aktiválási és Beállítási Útmutató -->
     <div class="card">
-      <h2>Telepítési és Aktiválási Útmutató</h2>
-      <p>A vásárlást követően az alkalmazás perceken belül üzembe helyezhető az alábbi lépésekkel:</p>
+      <h2>Telepítési és Beállítási Útmutató</h2>
+      <p>A vásárlást követően az alkalmazás perceken belül üzembe helyezhető:</p>
 
       <ol class="step-list">
         <li>
@@ -165,22 +180,22 @@
         </li>
         <li>
           <strong>3. Lépés: Licenckulcs aktiválása</strong>
-          <p>Az alkalmazás első indításakor megjelenik a készülék egyedi azonosítója. Írd be a vásárlás után kapott egyedi licenckulcsot az aktiváláshoz. A sikeres ellenőrzés után a szoftver azonnal korlátlanul használhatóvá válik.</p>
+          <p>Az alkalmazás első indításakor megjelenik a készülék egyedi azonosítója. Írd be a vásárlás után kapott licenckulcsot az aktiváláshoz. A sikeres ellenőrzés után a szoftver azonnal korlátlanul használhatóvá válik.</p>
         </li>
         <li>
-          <strong>4. Lépés: Értesítendő telefonszám(ok) rögzítése</strong>
-          <p>Add meg a családtagok vagy segítők telefonszámát a beállításokban nemzetközi formátumban (pl. <code>+3630...</code>), akik eltévedés vagy rosszullét esetén az azonnali segélykérő SMS-t kapják.</p>
+          <strong>4. Lépés: Családtagok és Otthon beállítása</strong>
+          <p>A dinamikus listában add hozzá a segítők neveit és telefonszámait. Állítsd be az <strong>Otthoni bázis pozíciót</strong>, hogy az app mindig pontosan tudja, milyen távol van a felhasználó az otthonától.</p>
         </li>
         <li>
           <strong>5. Lépés: A Widget kirakása a kezdőképernyőre (Ajánlott!)</strong>
-          <p>Lépj ki a telefon főképernyőjére, tartsd hosszan az ujjad egy üres területen. Válaszd a <strong>Widgetek</strong> lehetőséget, keresd meg az <strong>SOS</strong> ikont, majd húzd ki a kezdőképernyő legkönnyebben elérhető helyére.</p>
+          <p>Lépj ki a telefon főképernyőjére, tartsd hosszan az ujjad egy üres területen. Válaszd a <strong>Widgetek</strong> menüpontot, keresd meg az <strong>SOS</strong> ikont, majd húzd ki a kezdőképernyő legkönnyebben elérhető helyére.</p>
         </li>
       </ol>
 
       <!-- Kiemelt Hardveres Licenc Figyelmeztetés -->
       <div class="warning-box">
         <strong>⚠️ Fontos licencelési tudnivaló: Hardverhez kötött aktiválás!</strong>
-        <p>A megvásárolt örökös licenckulcs <strong>kizárólag arra az egy adott mobiltelefonra érvényes, amelyre aktiváltad</strong>. A licenc a készülék egyedi hardverazonosítójához kapcsolódik. Az alkalmazás másolása vagy átvitele egy másik telefonra nem működik; új készülék cseréje esetén új aktiváló kód vásárlása szükséges.</p>
+        <p>A megvásárolt örökös licenckulcs <strong>kizárólag arra az egy adott mobiltelefonra érvényes, amelyre aktiváltad</strong>. A licenc a készülék egyedi hardverazonosítójához kapcsolódik. Az alkalmazás átmásolása egy másik telefonra nem működik; új készülék cseréje esetén új aktiváló kód vásárlása szükséges.</p>
       </div>
     </div>
 
