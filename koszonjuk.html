@@ -14,6 +14,10 @@
     h2 { font-size: 1.3rem; margin-bottom: 1rem; color: #0f172a; }
     p { font-size: 0.95rem; color: #475569; margin-bottom: 1rem; }
     
+    .download-card { background: #eff6ff; border: 2px dashed #3b82f6; border-radius: 12px; padding: 1.5rem; text-align: center; margin-bottom: 1.8rem; }
+    .btn-download { display: inline-block; background: #16a34a; color: white; text-decoration: none; padding: 0.85rem 1.6rem; border-radius: 8px; font-weight: bold; font-size: 1.05rem; transition: background 0.2s; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+    .btn-download:hover { background: #15803d; }
+
     .form-group { margin-bottom: 1.2rem; }
     label { display: block; font-weight: 600; font-size: 0.9rem; margin-bottom: 0.4rem; color: #1e293b; }
     input { width: 100%; padding: 0.75rem; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 1rem; background: #f8fafc; }
@@ -24,11 +28,11 @@
     .btn:disabled { background: #94a3b8; cursor: not-allowed; }
 
     .result-box { display: none; background: #f0fdf4; border: 2px solid #86efac; border-radius: 10px; padding: 1.5rem; margin-top: 1.5rem; text-align: center; }
-    .result-box .code { font-size: 2.2rem; font-weight: 800; color: #15803d; letter-spacing: 2px; margin: 0.5rem 0; }
+    .result-box .code { font-size: 2.2rem; font-weight: 800; color: #15803d; letter-spacing: 3px; margin: 0.5rem 0; }
     
-    .guide-box { background: #f1f5f9; border-radius: 8px; padding: 1rem; margin-top: 1rem; font-size: 0.88rem; text-align: left; color: #334155; }
+    .guide-box { background: #f1f5f9; border-radius: 8px; padding: 1.2rem; margin-top: 1.2rem; font-size: 0.9rem; text-align: left; color: #334155; }
     .guide-box ol { margin-left: 1.2rem; }
-    .guide-box li { margin-bottom: 0.4rem; }
+    .guide-box li { margin-bottom: 0.5rem; }
 
     footer { text-align: center; padding: 2rem 1rem; color: #64748b; font-size: 0.85rem; }
   </style>
@@ -37,42 +41,53 @@
 
   <header>
     <h1>Köszönjük a megrendelést!</h1>
-    <p>Azonnali aktiválási kód generálása</p>
+    <p>SOS Eltévedtem alkalmazás letöltése és aktiválása</p>
   </header>
 
   <div class="container">
+
+    <!-- 1. Lépés: Közvetlen Letöltés -->
+    <div class="download-card">
+      <h3 style="color: #1e3a8a; margin-bottom: 0.5rem; font-size: 1.15rem;">1. Lépés: Telepítse az alkalmazást</h3>
+      <p style="margin-bottom: 1rem; font-size: 0.9rem;">Ha még nem töltötte le, kattintson az alábbi zöld gombra a telefonján:</p>
+      <a href="https://github.com/harosi/sos_eltvedtem/releases/latest/download/sos.apk" class="btn-download">
+        📲 SOS Eltévedtem Letöltése (sos.apk)
+      </a>
+    </div>
+
+    <!-- 2. Lépés: Készülékkód bekérése és aktiválás -->
     <div class="card">
-      <h2>Licenc Aktiválása</h2>
-      <p>Kérjük, adja meg a fizetéshez használt e-mail címét és a telefonon futó alkalmazásban megjelenő 4 jegyű készülékkódot!</p>
+      <h2>2. Lépés: Licenc Aktiválása</h2>
+      <p>Nyissa meg az appot a telefonján, és másolja be ide a felső, narancssárga dobozban megjelenő 4 jegyű Készülékkódot!</p>
 
       <form id="licenseForm">
         <div class="form-group">
-          <label for="email">E-mail cím:</label>
+          <label for="email">E-mail cím (a fizetéshez használt):</label>
           <input type="email" id="email" required placeholder="pelda@gmail.com">
         </div>
 
         <div class="form-group">
-          <label for="deviceId">Készülékkód (az applikáció Beállítások menüjéből):</label>
+          <label for="deviceId">Készülékkód (4 jegyű szám az appból):</label>
           <input type="number" id="deviceId" required placeholder="pl. 4521">
         </div>
 
-        <button type="submit" id="submitBtn" class="btn">Aktivációs Kód Létrehozása</button>
+        <button type="submit" id="submitBtn" class="btn">Aktivációs Kód Generálása</button>
       </form>
 
       <!-- Eredmény Megjelenítő Doboz -->
       <div id="resultBox" class="result-box">
-        <h3 style="color: #166534; font-size: 1.1rem;">Sikeres aktiválás!</h3>
-        <p style="margin-bottom: 0.5rem;">Az Ön végleges feloldókódja:</p>
+        <h3 style="color: #166534; font-size: 1.15rem;">🎉 Sikeres generálás!</h3>
+        <p style="margin-bottom: 0.4rem;">Az Ön végleges feloldókódja:</p>
         <div class="code" id="displayCode">------</div>
-        <p style="font-size: 0.85rem; color: #166534;">A kódot elküldtük a megadott e-mail címre is!</p>
+        <p style="font-size: 0.85rem; color: #166534; margin-bottom: 1rem;">A kódot elküldtük a megadott e-mail címre is!</p>
 
         <div class="guide-box">
-          <strong>Aktiválás lépései a telefonon:</strong>
+          <strong>Aktiválás lépései az alkalmazásban:</strong>
           <ol>
-            <li>Nyissa meg az SOS alkalmazást a telefonján.</li>
-            <li>A jobb felső sarokban érintse meg a fogaskerék (Beállítások) ikont.</li>
-            <li>Írja be a fenti számot az <em>„Aktivációs kód beírása”</em> mezőbe.</li>
-            <li>Nyomja meg az <strong>Aktiválás</strong> gombot, majd koppintson a <strong>Mentés</strong> gombra.</li>
+            <li>Nyissa meg a telefonon az <strong>SOS Eltévedtem</strong> appot.</li>
+            <li>A felső narancssárga dobozban írja be a fenti 6 jegyű feloldókódot a <em>„6 jegyű feloldókód”</em> mezőbe.</li>
+            <li>Nyomja meg az <strong>AKTIVÁLÁS</strong> gombot (a fejléc zöldre vált: <em>LICENC AKTIVÁLVA</em>).</li>
+            <li>Adja meg az értesítendő telefonszámot, és kattintson a lap alján a <strong>BEÁLLÍTÁSOK MENTÉSE</strong> gombra.</li>
           </ol>
         </div>
       </div>
@@ -118,12 +133,12 @@
         } else {
           alert("Hiba történt: " + result.message);
           submitBtn.disabled = false;
-          submitBtn.innerText = "Aktivációs Kód Létrehozása";
+          submitBtn.innerText = "Aktivációs Kód Generálása";
         }
       } catch (err) {
         alert("Hálózati kapcsolat hiba! Kérjük ellenőrizze az internetet.");
         submitBtn.disabled = false;
-        submitBtn.innerText = "Aktivációs Kód Létrehozása";
+        submitBtn.innerText = "Aktivációs Kód Generálása";
       }
     });
   </script>
