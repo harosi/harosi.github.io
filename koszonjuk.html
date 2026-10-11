@@ -1,147 +1,147 @@
 <!DOCTYPE html>
 <html lang="hu">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Köszönjük a vásárlást! | Hárosi Fejlesztések</title>
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
-    body { background-color: #f8fafc; color: #1e293b; line-height: 1.6; }
-    header { background: #0f172a; color: white; padding: 2.5rem 1rem; text-align: center; }
-    header h1 { font-size: 2rem; margin-bottom: 0.5rem; font-weight: 800; }
-    .container { max-width: 650px; margin: 2rem auto; padding: 0 1.5rem; }
-    .card { background: white; border-radius: 14px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.07); padding: 2rem; border: 1px solid #e2e8f0; margin-bottom: 2rem; }
-    h2 { font-size: 1.3rem; margin-bottom: 1rem; color: #0f172a; }
-    p { font-size: 0.95rem; color: #475569; margin-bottom: 1rem; }
-    
-    .download-card { background: #eff6ff; border: 2px dashed #3b82f6; border-radius: 12px; padding: 1.5rem; text-align: center; margin-bottom: 1.8rem; }
-    .btn-download { display: inline-block; background: #16a34a; color: white; text-decoration: none; padding: 0.85rem 1.6rem; border-radius: 8px; font-weight: bold; font-size: 1.05rem; transition: background 0.2s; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-    .btn-download:hover { background: #15803d; }
-
-    .form-group { margin-bottom: 1.2rem; }
-    label { display: block; font-weight: 600; font-size: 0.9rem; margin-bottom: 0.4rem; color: #1e293b; }
-    input { width: 100%; padding: 0.75rem; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 1rem; background: #f8fafc; }
-    input:focus { outline: none; border-color: #2563eb; background: white; }
-    
-    .btn { display: block; width: 100%; text-align: center; background: #2563eb; color: white; padding: 0.85rem 1.2rem; border-radius: 8px; font-weight: 600; font-size: 1rem; border: none; cursor: pointer; transition: background 0.2s; }
-    .btn:hover { background: #1d4ed8; }
-    .btn:disabled { background: #94a3b8; cursor: not-allowed; }
-
-    .result-box { display: none; background: #f0fdf4; border: 2px solid #86efac; border-radius: 10px; padding: 1.5rem; margin-top: 1.5rem; text-align: center; }
-    .result-box .code { font-size: 2.2rem; font-weight: 800; color: #15803d; letter-spacing: 3px; margin: 0.5rem 0; }
-    
-    .guide-box { background: #f1f5f9; border-radius: 8px; padding: 1.2rem; margin-top: 1.2rem; font-size: 0.9rem; text-align: left; color: #334155; }
-    .guide-box ol { margin-left: 1.2rem; }
-    .guide-box li { margin-bottom: 0.5rem; }
-
-    footer { text-align: center; padding: 2rem 1rem; color: #64748b; font-size: 0.85rem; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Köszönjük a vásárlást! - SOS Eltévedtem</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #0F172A;
+            color: #FFFFFF;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: #1E293B;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            max-width: 450px;
+            width: 100%;
+            text-align: center;
+        }
+        h1 { color: #10B981; font-size: 24px; margin-bottom: 10px; }
+        p { color: #94A3B8; font-size: 14px; line-height: 1.5; }
+        .step-box {
+            background-color: #0F172A;
+            border: 1px solid #334155;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 20px 0;
+            text-align: left;
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 8px;
+            box-sizing: border-box;
+            background-color: #1E293B;
+            border: 1px solid #475569;
+            color: #FFF;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+        button {
+            background-color: #10B981;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
+        }
+        button:hover { background-color: #059669; }
+        .result-box {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #064E3B;
+            border: 1px solid #10B981;
+            border-radius: 8px;
+            display: none;
+        }
+        .code-display {
+            font-size: 28px;
+            font-weight: bold;
+            color: #34D399;
+            letter-spacing: 2px;
+            margin-top: 5px;
+        }
+        .download-btn {
+            background-color: #3B82F6;
+            display: inline-block;
+            text-decoration: none;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 6px;
+            font-weight: bold;
+            margin-top: 15px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .download-btn:hover { background-color: #2563EB; }
+    </style>
 </head>
 <body>
 
-  <header>
-    <h1>Köszönjük a megrendelést!</h1>
-    <p>SOS Eltévedtem alkalmazás letöltése és aktiválása</p>
-  </header>
+    <div class="container">
+        <h1>🎉 Köszönjük a megrendelést!</h1>
+        <p>A fizetés sikeresen megtörtént. Az alábbi lépések követésével azonnal aktiválhatod az alkalmazást.</p>
 
-  <div class="container">
+        <!-- Letöltés szekció -->
+        <a href="https://github.com/harosi/sos_eltvedtem/releases/latest/download/app-release.apk" class="download-btn">
+            📥 Alkalmazás letöltése (APK)
+        </a>
 
-    <!-- 1. Lépés: Közvetlen Letöltés -->
-    <div class="download-card">
-      <h3 style="color: #1e3a8a; margin-bottom: 0.5rem; font-size: 1.15rem;">1. Lépés: Telepítse az alkalmazást</h3>
-      <p style="margin-bottom: 1rem; font-size: 0.9rem;">Ha még nem töltötte le, kattintson az alábbi zöld gombra a telefonján:</p>
-      <a href="https://github.com/harosi/sos_eltvedtem/releases/latest/download/sos.apk" class="btn-download">
-        📲 SOS Eltévedtem Letöltése (sos.apk)
-      </a>
+        <!-- Licencgenerátor szekció -->
+        <div class="step-box">
+            <label for="deviceIdInput" style="font-weight: bold; color: #E2E8F0;">Add meg a telefonos applikációban látható 4 jegyű Készülékkódot:</label>
+            <input type="number" id="deviceIdInput" placeholder="pl. 4821" min="1000" max="9999">
+            <button onclick="generateCode()">Feloldókód generálása</button>
+        </div>
+
+        <!-- Eredmény doboz -->
+        <div id="resultBox" class="result-box">
+            <p style="margin: 0; color: #E2E8F0;">A te egyedi feloldókódod:</p>
+            <div id="activationCodeDisplay" class="code-display">------</div>
+            <p style="font-size: 12px; margin-top: 8px; color: #A7F3D0;">Írd be ezt a kódot az applikáció licenc aktiváló mezőjébe!</p>
+        </div>
     </div>
 
-    <!-- 2. Lépés: Készülékkód bekérése és aktiválás -->
-    <div class="card">
-      <h2>2. Lépés: Licenc Aktiválása</h2>
-      <p>Nyissa meg az appot a telefonján, és másolja be ide a felső, narancssárga dobozban megjelenő 4 jegyű Készülékkódot!</p>
+    <script>
+        // Pontosan ugyanazok a konstansok, mint a Dart oldalon és a Google Scriptben
+        const _secretSalt = 0x5F3759DF;
+        const _prime1 = 73856093;
+        const _prime2 = 19349663;
 
-      <form id="licenseForm">
-        <div class="form-group">
-          <label for="email">E-mail cím (a fizetéshez használt):</label>
-          <input type="email" id="email" required placeholder="pelda@gmail.com">
-        </div>
+        function generateCode() {
+            const inputVal = document.getElementById('deviceIdInput').value.trim();
+            const devId = parseInt(inputVal, 10);
 
-        <div class="form-group">
-          <label for="deviceId">Készülékkód (4 jegyű szám az appból):</label>
-          <input type="number" id="deviceId" required placeholder="pl. 4521">
-        </div>
+            if (isNaN(devId) || devId < 1000 || devId > 9999) {
+                alert("Kérlek, egy érvényes 4 jegyű készülékkódot adj meg!");
+                return;
+            }
 
-        <button type="submit" id="submitBtn" class="btn">Aktivációs Kód Generálása</button>
-      </form>
+            // JavaScript 32 bites szorzás emuláció (Math.imul)
+            let hash = Math.imul((devId ^ _secretSalt), _prime1);
+            hash = Math.imul((hash ^ (hash >> 13)), _prime2);
+            hash = (hash ^ (hash >> 16)) & 0xFFFFFFFF;
 
-      <!-- Eredmény Megjelenítő Doboz -->
-      <div id="resultBox" class="result-box">
-        <h3 style="color: #166534; font-size: 1.15rem;">🎉 Sikeres generálás!</h3>
-        <p style="margin-bottom: 0.4rem;">Az Ön végleges feloldókódja:</p>
-        <div class="code" id="displayCode">------</div>
-        <p style="font-size: 0.85rem; color: #166534; margin-bottom: 1rem;">A kódot elküldtük a megadott e-mail címre is!</p>
+            let finalCode = (Math.abs(hash) % 900000) + 100000;
 
-        <div class="guide-box">
-          <strong>Aktiválás lépései az alkalmazásban:</strong>
-          <ol>
-            <li>Nyissa meg a telefonon az <strong>SOS Eltévedtem</strong> appot.</li>
-            <li>A felső narancssárga dobozban írja be a fenti 6 jegyű feloldókódot a <em>„6 jegyű feloldókód”</em> mezőbe.</li>
-            <li>Nyomja meg az <strong>AKTIVÁLÁS</strong> gombot (a fejléc zöldre vált: <em>LICENC AKTIVÁLVA</em>).</li>
-            <li>Adja meg az értesítendő telefonszámot, és kattintson a lap alján a <strong>BEÁLLÍTÁSOK MENTÉSE</strong> gombra.</li>
-          </ol>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-  <footer>
-    <p>&copy; Hárosi Fejlesztések. Minden jog fenntartva.</p>
-  </footer>
-
-  <script>
-    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyvYaM-aU8HW7BLvH70VuEibTja0gu5nPuKR5-1GioJaLr-yuKkrdJN6greoBF4JTXr/exec";
-
-    const form = document.getElementById('licenseForm');
-    const submitBtn = document.getElementById('submitBtn');
-    const resultBox = document.getElementById('resultBox');
-    const displayCode = document.getElementById('displayCode');
-
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      
-      submitBtn.disabled = true;
-      submitBtn.innerText = "Generálás folyamatban...";
-
-      const payload = {
-        email: document.getElementById('email').value,
-        deviceId: document.getElementById('deviceId').value
-      };
-
-      try {
-        const response = await fetch(SCRIPT_URL, {
-          method: "POST",
-          body: JSON.stringify(payload)
-        });
-
-        const result = await response.json();
-
-        if (result.status === "success") {
-          displayCode.innerText = result.activationCode;
-          resultBox.style.display = "block";
-          form.style.display = "none";
-        } else {
-          alert("Hiba történt: " + result.message);
-          submitBtn.disabled = false;
-          submitBtn.innerText = "Aktivációs Kód Generálása";
+            // Megjelenítés
+            document.getElementById('activationCodeDisplay').innerText = finalCode;
+            document.getElementById('resultBox').style.display = 'block';
         }
-      } catch (err) {
-        alert("Hálózati kapcsolat hiba! Kérjük ellenőrizze az internetet.");
-        submitBtn.disabled = false;
-        submitBtn.innerText = "Aktivációs Kód Generálása";
-      }
-    });
-  </script>
+    </script>
 
 </body>
 </html>
