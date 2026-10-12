@@ -126,26 +126,28 @@
         </div>
     </div>
 
-    <script>
+   <script>
         // Oldal betöltésekor ellenőrizzük a Stripe session-t
         window.onload = function() {
-            const urlParams = new URLSearchParams(window.search || window.location.search);
+            const urlParams = new URLSearchParams(window.location.search);
             const sessionId = urlParams.get('session_id');
 
-            // Teszteléshez vagy éles futáshoz: ha van session_id, vagy ha tesztparamétert adsz meg (pl. ?test=1)
-            // Élesben a Stripe automatikusan küldi a session_id-t.
-            if (sessionId) {
+            if (sessionId || urlParams.get('test') === '1') {
                 document.getElementById('securedContent').style.display = 'block';
             } else {
-                // Biztonság kedvéért: ha simán nyitják meg, a hibaüzenet jelenik meg
                 document.getElementById('accessDenied').style.display = 'block';
             }
         };
 
-        // Licencgeneráló konstansok és logika
+        // Titkos konstansok (egyezik a Dart applikációval)
         const _secretSalt = 0x5F3759DF;
         const _prime1 = 73856093;
         const _prime2 = 19349663;
+
+        // Dart _imul megfelelője JavaScriptben
+        function _imul(a, b) {
+            return Math.imul(a | 0, b | 0);
+        }
 
         function generateCode() {
             const inputVal = document.getElementById('deviceIdInput').value.trim();
@@ -156,9 +158,10 @@
                 return;
             }
 
-            let hash = Math.imul((devId ^ _secretSalt), _prime1);
-            hash = Math.imul((hash ^ (hash >> 13)), _prime2);
-            hash = (hash ^ (hash >> 16)) & 0xFFFFFFFF;
+            let hash = _imul(devId ^ _secretSalt, _prime1);
+            let xor1 = (hash ^ (hash >> 13)) | 0;
+            hash = _imul(xor1, _prime2);
+            hash = (hash ^ (hash >> 16)) >>> 0;
 
             let finalCode = (Math.abs(hash) % 900000) + 100000;
 
@@ -166,6 +169,3 @@
             document.getElementById('resultBox').style.display = 'block';
         }
     </script>
-
-</body>
-</html>
