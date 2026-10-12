@@ -87,34 +87,62 @@
             box-sizing: border-box;
         }
         .download-btn:hover { background-color: #2563EB; }
+        #securedContent, #accessDenied { display: none; }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <h1>🎉 Köszönjük a megrendelést!</h1>
-        <p>A fizetés sikeresen megtörtént. Az alábbi lépések követésével azonnal aktiválhatod az alkalmazást.</p>
-
-        <!-- Letöltés szekció -->
-       <a href="https://github.com/harosi/sos_eltvedtem/releases/latest/download/sos.apk" class="download-btn">
-    📥 Alkalmazás letöltése (APK)  </a>
-             <!-- Licencgenerátor szekció -->
-        <div class="step-box">
-            <label for="deviceIdInput" style="font-weight: bold; color: #E2E8F0;">Add meg a telefonos applikációban látható 4 jegyű Készülékkódot:</label>
-            <input type="number" id="deviceIdInput" placeholder="pl. 4821" min="1000" max="9999">
-            <button onclick="generateCode()">Feloldókód generálása</button>
+        <!-- Hozzáférés megtagadva üzenet, ha nincs fizetési session -->
+        <div id="accessDenied">
+            <h1 style="color: #EF4444;">⛔ Hozzáférés megtagadva</h1>
+            <p>Ez az oldal kizárólag a sikeres vásárlás után érhető el a fizetési felületről átirányítva.</p>
+            <p>Kérjük, vásárold meg az alkalmazást a hivatalos oldalon keresztül.</p>
         </div>
 
-        <!-- Eredmény doboz -->
-        <div id="resultBox" class="result-box">
-            <p style="margin: 0; color: #E2E8F0;">A te egyedi feloldókódod:</p>
-            <div id="activationCodeDisplay" class="code-display">------</div>
-            <p style="font-size: 12px; margin-top: 8px; color: #A7F3D0;">Írd be ezt a kódot az applikáció licenc aktiváló mezőjébe!</p>
+        <!-- Védett tartalom, ami csak fizetés után látszik -->
+        <div id="securedContent">
+            <h1>🎉 Köszönjük a megrendelést!</h1>
+            <p>A fizetés sikeresen megtörtént. Az alábbi lépések követésével azonnal aktiválhatod az alkalmazást.</p>
+
+            <!-- Letöltés szekció -->
+            <a href="https://github.com/harosi/sos_eltvedtem/releases/latest/download/sos.apk" class="download-btn">
+                📥 Alkalmazás letöltése (APK)
+            </a>
+
+            <!-- Licencgenerátor szekció -->
+            <div class="step-box">
+                <label for="deviceIdInput" style="font-weight: bold; color: #E2E8F0;">Add meg a telefonos applikációban látható 4 jegyű Készülékkódot:</label>
+                <input type="number" id="deviceIdInput" placeholder="pl. 4821" min="1000" max="9999">
+                <button onclick="generateCode()">Feloldókód generálása</button>
+            </div>
+
+            <!-- Eredmény doboz -->
+            <div id="resultBox" class="result-box">
+                <p style="margin: 0; color: #E2E8F0;">A te egyedi feloldókódod:</p>
+                <div id="activationCodeDisplay" class="code-display">------</div>
+                <p style="font-size: 12px; margin-top: 8px; color: #A7F3D0;">Írd be ezt a kódot az applikáció licenc aktiváló mezőjébe!</p>
+            </div>
         </div>
     </div>
 
     <script>
-        // Pontosan ugyanazok a konstansok, mint a Dart oldalon és a Google Scriptben
+        // Oldal betöltésekor ellenőrizzük a Stripe session-t
+        window.onload = function() {
+            const urlParams = new URLSearchParams(window.search || window.location.search);
+            const sessionId = urlParams.get('session_id');
+
+            // Teszteléshez vagy éles futáshoz: ha van session_id, vagy ha tesztparamétert adsz meg (pl. ?test=1)
+            // Élesben a Stripe automatikusan küldi a session_id-t.
+            if (sessionId) {
+                document.getElementById('securedContent').style.display = 'block';
+            } else {
+                // Biztonság kedvéért: ha simán nyitják meg, a hibaüzenet jelenik meg
+                document.getElementById('accessDenied').style.display = 'block';
+            }
+        };
+
+        // Licencgeneráló konstansok és logika
         const _secretSalt = 0x5F3759DF;
         const _prime1 = 73856093;
         const _prime2 = 19349663;
@@ -128,14 +156,12 @@
                 return;
             }
 
-            // JavaScript 32 bites szorzás emuláció (Math.imul)
             let hash = Math.imul((devId ^ _secretSalt), _prime1);
             hash = Math.imul((hash ^ (hash >> 13)), _prime2);
             hash = (hash ^ (hash >> 16)) & 0xFFFFFFFF;
 
             let finalCode = (Math.abs(hash) % 900000) + 100000;
 
-            // Megjelenítés
             document.getElementById('activationCodeDisplay').innerText = finalCode;
             document.getElementById('resultBox').style.display = 'block';
         }
